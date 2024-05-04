@@ -1,0 +1,282 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  background : #FF8C9A;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /*border: 1px solid white;*/
+  width: 50%;
+  height: 80%;
+  position: absolute;
+}
+
+.rainbow {
+  position: relative;
+  z-index: -1;
+}
+
+.lime {
+  background: #FBF8CC;
+  width: 37.5rem;
+  height: 25rem;
+  postion: relative;
+  border-radius: 23.75rem 23.75rem 0 0;   
+}
+
+.peach {
+  background: #FDE4CF;
+  width: 580px;
+  height: 390px;
+  position: relative;
+  top: 10px;
+  left:10px;
+  border-radius: 380px 380px 0 0;
+}
+
+.corail {
+  background: #FFCFD2;
+  width: 560px;
+  height: 380px;
+  position: relative;
+  top: 10px;
+  left: 10px;
+  border-radius: 380px 380px 0 0;
+} 
+
+.rose {
+  background: #F1C0E8;
+  width: 540px;
+  height: 370px;
+  position: relative;
+  top: 10px;
+  left: 10px;
+  border-radius: 380px 380px 0 0;
+
+} 
+
+.purple {
+  background: #CFBAF0;
+  width: 520px;
+  height: 360px;
+  position: relative;
+  top: 10px;
+  left: 10px;
+  border-radius: 380px 380px 0 0;
+} 
+
+.rainbowBackgroundUp {
+  background: #FF8C9A;
+  width: 500px;
+  height: 350px;
+  position: relative;
+  top: 10px;
+  left: 10px;
+  border-radius: 380px 380px 0 0;
+} 
+
+.blue {
+  background: #A3C4F3;
+  width: 600px;
+  height: 400px;
+  position: relative;
+  border-radius: 0 0 380px 380px;;
+} 
+
+.skyBlue {
+  background: #90DBF4;
+  width: 580px;
+  height: 390px;
+  position: relative;
+  top: 0px;
+  left: 10px;
+  border-radius: 0 0 380px 380px;
+} 
+
+.lightBlue {
+  background: #8EECF5;
+  width: 560px;
+  height: 380px;
+  position: relative;
+  top: 0px;
+  left: 10px;
+  border-radius: 0 0 380px 380px;
+} 
+
+.green {
+  background: #98F5E1;
+  width: 540px;
+  height: 370px;
+  position: relative;
+  top: 0px;
+  left: 10px;
+  border-radius: 0 0 380px 380px;
+} 
+
+.limeGreen {
+  background: #B9FBC0;
+  width: 520px;
+  height: 360px;
+  position: relative;
+  top: 0px;
+  left: 10px;
+  border-radius: 0 0 380px 380px;
+} 
+
+.rainbowbackgroundSub {
+  background: #FF8C9A;
+  width: 500px;
+  height: 350px;
+  position: relative;
+  top: 0px;
+  left: 10px;
+  border-radius: 0 0 380px 380px;
+}
+
+
+h1 {
+  font-family: sans-serif;
+  color: #DCFFE5;
+}
+
+.timerView {
+  padding-top: 0px;
+  font-family: sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  color: #DCFFE5;
+  text-align: center;
+}
+
+.buttonsBar {
+  display: flex;
+  align-items: center; 
+  justify-content: space-evenly;
+  margin-top: 20px;
+  height: 3.5rem;
+  position: relative;
+  z-index: 1;
+  border: solid 3px #DCFFE5;
+  border-radius: 40px;
+  }
+
+.choiceBar {
+  padding-top: 20px;
+  position: relative;
+  top:0px;
+  left: 0px;
+  z-index: 1;
+  display: flex;
+  gap: 1rem;
+}
+
+.cursor {
+  cursor : pointer;
+}
+
+.buttonPlay {
+  border: solid 3px #DCFFE5;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+.play {
+  width : 0;
+  height : 0;
+  border-bottom : 15px solid transparent;
+  border-top : 15px solid transparent;
+  border-left : 15px solid #DCFFE5;  
+}
+
+.pause {
+  width: 7px;
+  height: 20px;
+  border-right: solid 3px #DCFFE5;
+  border-left: solid 3px #DCFFE5;
+  position: relative;
+}
+
+.buttonPause {
+  border: solid 3px #DCFFE5;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+
+.stop {
+  width: 20px;
+  height: 20px;
+  background: #DCFFE5;
+  position: relative;
+  }
+
+.buttonStop {
+  border: solid 3px #DCFFE5;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+.choice {
+  border: solid 3px #DCFFE5;
+  border-radius: 40px;
+  background: #FF8C9A;
+  padding: 0.5rem;
+  font-family: sans-serif;
+  color: #DCFFE5;
+}
+
+.containerAlarm {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-top: 5rem;
+  border-radius: 50%;
+  background: #DCFFE5;
+}
+
+.doubleBorder{
+  animation: doubleBorder 2s infinite;
+}
+
+@keyframes doubleBorder {
+ 50% {
+    box-shadow: 0px 0px 0 6px #DCFFE5;
+  }
+}
+
+.iconAlarm {
+  width: 70%;
+}
+
+.animationRotation {
+  animation: rotation 2s infinite;
+}
+
+@keyframes rotation {
+ 25% {transform: rotate(280deg);
+}
