@@ -8,58 +8,102 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <div class="container">
-      <div class= "rainbow">
-        <div class= "workRainbow">
-      <div class= "lime"> 
-       <div class=  "peach">
-           <div class=  "corail">
-              <div class=  "rose">
-                 <div class=  "purple">
-                   <div class= "rainbowBackgroundUp">
-                    </div>
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-       <div class= "breakRainbow">
-                  <div class= "blue">
-                     <div class= "skyBlue">
-                        <div class= "lightBlue">
-                         <div class= "green">
-                            <div class= "limeGreen">
-                              <div class= "rainbowbackgroundSub">
-                           </div>
-                        </div>
-                     </div> 
-                   </div>
-                 </div>   
-             </div>
+    <div class="mainContainer">
+      <div class="rainbowContainer">
+        <div class="rainbowColors">
+          <div class="rainbow-lime">
+            <div class="rainbow-peach">
+              <div class="rainbow-corail">
+                <div class="rainbow-pink">
+                  <div class="rainbow-purple"></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
+
+        <!--<div class= "rainbow">
+          <div class= "workRainbow">
+            <div class= "lime"> 
+              <div class=  "peach">
+                <div class=  "corail">
+                  <div class=  "rose">
+                    <div class=  "purple">
+                      <div class= "rainbowBackgroundUp">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class= "breakRainbow">
+              <div class= "blue">
+                <div class= "skyBlue">
+                    <div class= "lightBlue">
+                      <div class= "green">
+                        <div class= "limeGreen">
+                          <div class= "rainbowbackgroundSub">
+                          </div>
+                        </div>
+                      </div> 
+                  </div>
+                </div>   
+              </div>
+          </div>
+        </div>
+      </div> -->
+        <button class="containerAlarm doubleBorder">
+          <img
+            class="iconAlarm animationRotation"
+            src="https://raw.githubusercontent.com/EmiLy-Ly-san/PomodoroRainbow/e638d9cc2985da2d5109e35b72fac24d3130a1fb/images/notification-bell-svgrepo-com.svg"
+            alt="Icone de l'alarme"
+          />
+        </button>
       </div>
-    
-      <h1>Pomodoro timer !</h1>
-      <div class="timerView"></div>
-      <div class: "possibilitiesContainer">
-        <div class= "buttonsBar">  
-            <div class= "buttonPlay">
-              <div class= "play cursor"></div>
+
+      <div class="assetsContainer">
+        <div class="timerView"></div>
+        <div class="possibilitiesContainer">
+          <div class="buttonsBar">
+            <div class="buttonPlay">
+              <div class="play cursor"></div>
             </div>
-            <div class= "buttonPause">
-              <div class= "pause cursor"></div>
+            <div class="buttonPause">
+              <div class="pause cursor"></div>
             </div>
-            <div class= "buttonStop">
-              <div class= "stop cursor"></div> 
+            <div class="buttonStop">
+              <div class="stop cursor"></div>
             </div>
-         </div>
-          <div class= "choiceBar">
-            <button class= "workSession cursor choice" > Work session</button>
-            <button class= "breakSession cursor choice">New break </button> 
-          </div>  
-      </div> 
+          </div>
+          <div class="choiceBar">
+            <div class="choiceSession">
+              <button class="workSession cursor choice">Work session</button>
+              <button class="breakSession cursor choice">New break</button>
+            </div>
+            <div class="theme">
+              <button class="starWars cursor choiceTheme">
+                <img
+                  src="images/icons8-star-wars-black.svg"
+                  alt="Icone de Stars War"
+                />
+              </button>
+              <button class="strangerThings cursor choiceTheme">
+                <img
+                  src="images/icons8-choses-étranges.svg"
+                  alt="Icone de Stranger Things"
+                />
+              </button>
+              <button class="animalCrossing cursor choiceTheme">
+                <img
+                  src="images/icons8-traversée-d'animaux (1).svg"
+                  alt="Icone de Animal Crossing"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

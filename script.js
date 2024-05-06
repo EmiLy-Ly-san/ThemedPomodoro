@@ -29,7 +29,7 @@ let secondes = 00;
 let interval;
 //Alarm
 let alarmAudio = new Audio("/alarms/marimba-ringtone-2-185153.mp3");
-const buttonAlarm = document.querySelector(".containerAlarm");
+let containerAlarm = document.querySelector(".containerAlarm");
 
 //STYLE AND CONTENT PRESET
 timerView.textContent = `${minutes} mn : ${secondes} s`;
@@ -38,6 +38,7 @@ WorkSessionButtonActiv();
 breakSessionButtonDisplayInline();
 breakSessionButtonActiv();
 document.querySelector(".buttonsBar").style.display = "none";
+//containerAlarm.style.display = "none";
 
 // FUNCTION INTERACTIVITY
 /******RAINBOWS*/
@@ -194,7 +195,7 @@ function ringAlarm() {
 }
 
 function stopAlarm() {
-  alarmAudio.stop();
+  alarmAudio.pause();
 }
 
 ////FUNCTIONS GENERAL
@@ -254,7 +255,9 @@ function countDown() {
   if (sessionTime < 0) {
     clearInterval(interval);
     timerView.textContent = `Time out`;
+    containerAlarm.style.display = "flex";
     ringAlarm();
+    containerAlarm.addEventListener("click", stopAlarm);
   }
 }
 
