@@ -1,3 +1,4 @@
+/*GENERAL*/
 * {
   padding: 0;
   margin: 0;
@@ -14,13 +15,13 @@ body {
   align-items: center;
 }
 
+/*CIRCLES + RING*/
 .mainContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 30%;
-  height: 100%;
 }
 
 .rainbowContainer {
@@ -30,6 +31,10 @@ body {
   align-items: center;
 }
 
+.circleLime {
+  position: absolute;
+  top: 0;
+}
 .circlePeach {
   position: absolute;
   top: 1.5rem;
@@ -99,83 +104,6 @@ body {
   }
 }
 
-/*.circleLime1 {
-  width: 17em;
-  height: 8.5em;
-  border: 1em solid #fbf8cc;
-  border-radius: 9.5em 9.5em 0 0;
-  border-bottom: none;
-  position: absolute;
-  top: 6em;
-}
-
-/*.rainbowColors {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 25em;
-  width: 34em;
-  animation: spin 3s infinite;
-  position: absolute;
-}
-
-@keyframes spin {
-  100% {
-    transform-origin: center;
-    transform: rotate(360deg);
-  }
-}
-
-/*ratio pour l'epaisseur d'un arc si on le modifie => le ratio des width = ratio des height * 2 | ratio des width actuelles -1.25 de la width de l'arc precedent | ratio des height actuelles -2.5 de l'arc precedent*/
-/*.rainbow-lime {
-  height: 12.5em;
-  width: 25em;
-  border: 1.25em solid #fbf8cc;
-  border-top: none;
-  border-radius: 0 0 12.5em 12.5em; /*arrondi harmonieux avec un border-radius===height*/
-/*  position: relative;
-  bottom: -25%;
-}
-
-.rainbow-peach {
-  height: 11.25em; /*ratio -1.25 du raimbow precedent*/
-/*  width: 22.5em; /*ratio -2.5 du raimbow precedent*/
-/*  border: 1.25em solid #fde4cf;
-  border-top: none;
-  border-radius: 0 0 11.25em 11.25em;
-}
-
-.rainbow-corail {
-  height: 10em;
-  width: 20em;
-  border: 1.25em solid #ffcfd2;
-  border-top: none;
-  border-radius: 0 0 10.5em 10.5em;
-}
-
-.rainbow-pink {
-  height: 8.75em;
-  width: 17.5em;
-  border: 1.25em solid #f1c0e8;
-  border-top: none;
-  border-radius: 0 0 8.75em 8.75em;
-}
-
-.rainbow-purple {
-  height: 7.5em;
-  width: 15em;
-  border: 1.25em solid #cfbaf0;
-  border-top: none;
-  border-radius: 0 0 7.5em 7.5em;
-}
-*/
-
-.assetsContainer {
-  margin-top: 2rem;
-  /* width: 80%;*/
-}
-
 .containerAlarm {
   width: 50px;
   height: 50px;
@@ -183,13 +111,11 @@ body {
   justify-content: center;
   align-items: center;
   margin: auto;
-
   border-radius: 50%;
   background: #dcffe5;
   border: none;
-  z-index: 1;
   position: absolute;
-
+  top: 16em;
   cursor: pointer;
 }
 
@@ -223,138 +149,10 @@ body {
   }
 }
 
-/*
-.rainbow {
-  position: relative;
-  z-index: -1;
+/*TIMER + CHOICES*/
+.assetsContainer {
+  margin-top: 28rem;
 }
-
-.lime {
-  background: #fbf8cc;
-  width: 37.5rem;
-  height: 25rem;
-  position: relative;
-  border-radius: 23.75rem 23.75rem 0 0;
-}
-
-.peach {
-  background: #fde4cf;
-  width: 580px;
-  height: 390px;
-  position: relative;
-  top: 10px;
-  left: 10px;
-  border-radius: 380px 380px 0 0;
-}
-
-.corail {
-  background: #ffcfd2;
-  width: 560px;
-  height: 380px;
-  position: relative;
-  top: 10px;
-  left: 10px;
-  border-radius: 380px 380px 0 0;
-}
-
-.rose {
-  background: #f1c0e8;
-  width: 540px;
-  height: 370px;
-  position: relative;
-  top: 10px;
-  left: 10px;
-  border-radius: 380px 380px 0 0;
-}
-
-.purple {
-  background: #cfbaf0;
-  width: 520px;
-  height: 360px;
-  position: relative;
-  top: 10px;
-  left: 10px;
-  border-radius: 380px 380px 0 0;
-}
-
-.rainbowBackgroundUp {
-  background: #ff8c9a;
-  width: 500px;
-  height: 350px;
-  position: relative;
-  top: 10px;
-  left: 10px;
-  border-radius: 380px 380px 0 0;
-}
-
-.blue {
-  background: #a3c4f3;
-  width: 600px;
-  height: 400px;
-  position: relative;
-  border-radius: 0 0 380px 380px;
-}
-
-.skyBlue {
-  background: #90dbf4;
-  width: 580px;
-  height: 390px;
-  position: relative;
-  top: 0px;
-  left: 10px;
-  border-radius: 0 0 380px 380px;
-}
-
-.lightBlue {
-  background: #8eecf5;
-  width: 560px;
-  height: 380px;
-  position: relative;
-  top: 0px;
-  left: 10px;
-  border-radius: 0 0 380px 380px;
-}
-
-.green {
-  background: #98f5e1;
-  width: 540px;
-  height: 370px;
-  position: relative;
-  top: 0px;
-  left: 10px;
-  border-radius: 0 0 380px 380px;
-}
-
-.limeGreen {
-  background: #b9fbc0;
-  width: 520px;
-  height: 360px;
-  position: relative;
-  top: 0px;
-  left: 10px;
-  border-radius: 0 0 380px 380px;
-}
-
-.rainbowbackgroundSub {
-  background: #ff8c9a;
-  width: 500px;
-  height: 350px;
-  position: relative;
-  top: 0px;
-  left: 10px;
-  border-radius: 0 0 380px 380px;
-}
-*/
-h1 {
-  font-family: sans-serif;
-  color: #dcffe5;
-  margin-top: 3rem;
-}
-
-/*.assetsContainer {
-  margin-top: -10rem;
-}*/
-
 .timerView {
   font-family: sans-serif;
   font-size: 30px;
@@ -367,10 +165,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 20px;
   height: 3.5rem;
-  position: relative;
-  z-index: 1;
   border: solid 3px #dcffe5;
   border-radius: 40px;
 }

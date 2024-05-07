@@ -9,7 +9,7 @@ let pauseButton = document.querySelector(".pause");
 let backPauseButton = document.querySelector(".buttonPause");
 let breakSessionButton = document.querySelector(".breakSession");
 let WorkSessionButton = document.querySelector(".workSession");
-//workRainbow
+/*//workRainbow
 let workLimeRainbow = document.querySelector(".lime");
 let workPeachRainbow = document.querySelector(".peach");
 let workCorailRainbow = document.querySelector(".corail");
@@ -21,7 +21,7 @@ let breakBlueRainbow = document.querySelector(".blue");
 let breakSkyBlueRainbow = document.querySelector(".skyBlue");
 let breakLightBlueRainbow = document.querySelector(".lightBlue");
 let breakGreenRainbow = document.querySelector(".green");
-let breakLimeGreenRainbow = document.querySelector(".limeGreen");
+let breakLimeGreenRainbow = document.querySelector(".limeGreen");*/
 let sessionTime;
 let timeCalled;
 let minutes = 25;
@@ -42,7 +42,7 @@ document.querySelector(".buttonsBar").style.display = "none";
 
 // FUNCTION INTERACTIVITY
 /******RAINBOWS*/
-function workRainbowInitalColor() {
+/*function workRainbowInitalColor() {
   workLimeRainbow.style.background = "#FBF8CC";
   workPeachRainbow.style.background = "#FDE4CF";
   workCorailRainbow.style.background = "#FFCFD2";
@@ -72,7 +72,7 @@ function breakRainbowPink() {
   breakLightBlueRainbow.style.background = "#DD7884";
   breakGreenRainbow.style.background = "#DD7884";
   breakLimeGreenRainbow.style.background = "#DD7884";
-}
+}*/
 
 /******PLAYBUTTON*/
 function playButtonActiv() {
@@ -215,8 +215,6 @@ function onclickNewWorkSession() {
   document.querySelector(".buttonsBar").style.display = "flex";
   WorkSessionButtonInactiv();
   breakSessionButtonActiv();
-  workRainbowInitalColor();
-  breakRainbowPink();
   playButtonInactiv();
   pauseButtonActiv();
   stopButtonActiv();
@@ -231,8 +229,6 @@ function onclickBreakCallButton() {
   document.querySelector(".buttonsBar").style.display = "flex";
   breakSessionButtonInactiv();
   WorkSessionButtonActiv();
-  workRainbowPink();
-  breakRainbowInitialColor();
   playButtonInactiv();
   pauseButtonActiv();
   stopButtonActiv();
