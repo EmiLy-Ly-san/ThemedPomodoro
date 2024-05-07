@@ -15,14 +15,13 @@ body {
 }
 
 .mainContainer {
-  margin-top: 10rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 13rem;
   width: 25%;
   height: 100%;
+  border: 2px solid;
 }
 
 .rainbowContainer {
@@ -32,7 +31,17 @@ body {
   align-items: center;
 }
 
-.rainbowColors {
+.circleLime1 {
+  width: 17em;
+  height: 8.5em;
+  border: 1em solid #fbf8cc;
+  border-radius: 9.5em 9.5em 0 0;
+  border-bottom: none;
+  position: absolute;
+  top: 6em;
+}
+
+/*.rainbowColors {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -51,20 +60,20 @@ body {
 }
 
 /*ratio pour l'epaisseur d'un arc si on le modifie => le ratio des width = ratio des height * 2 | ratio des width actuelles -1.25 de la width de l'arc precedent | ratio des height actuelles -2.5 de l'arc precedent*/
-.rainbow-lime {
+/*.rainbow-lime {
   height: 12.5em;
   width: 25em;
   border: 1.25em solid #fbf8cc;
   border-top: none;
   border-radius: 0 0 12.5em 12.5em; /*arrondi harmonieux avec un border-radius===height*/
-  position: relative;
+/*  position: relative;
   bottom: -25%;
 }
 
 .rainbow-peach {
   height: 11.25em; /*ratio -1.25 du raimbow precedent*/
-  width: 22.5em; /*ratio -2.5 du raimbow precedent*/
-  border: 1.25em solid #fde4cf;
+/*  width: 22.5em; /*ratio -2.5 du raimbow precedent*/
+/*  border: 1.25em solid #fde4cf;
   border-top: none;
   border-radius: 0 0 11.25em 11.25em;
 }
@@ -92,6 +101,7 @@ body {
   border-top: none;
   border-radius: 0 0 7.5em 7.5em;
 }
+*/
 
 .assetsContainer {
   margin-top: 2rem;
