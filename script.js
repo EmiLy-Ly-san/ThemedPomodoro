@@ -28,8 +28,8 @@ let minutes = 25;
 let secondes = 00;
 let interval;
 //Alarm
-const alarmAudio = new Audio("alarms/marimba-ringtone-2-185153.mp3");
-const buttonAlarm = document.querySelector(".containerAlarm");
+let alarmAudio = new Audio("/alarms/marimba-ringtone-2-185153.mp3");
+let containerAlarm = document.querySelector(".containerAlarm");
 
 //STYLE AND CONTENT PRESET
 timerView.textContent = `${minutes} mn : ${secondes} s`;
@@ -38,7 +38,7 @@ WorkSessionButtonActiv();
 breakSessionButtonDisplayInline();
 breakSessionButtonActiv();
 document.querySelector(".buttonsBar").style.display = "none";
-buttonAlarm.style.display = "none";
+//containerAlarm.style.display = "none";
 
 // FUNCTION INTERACTIVITY
 /******RAINBOWS*/
@@ -191,12 +191,11 @@ function breakSessionButtonDisplayNone() {
 
 /******AUDIO ALARM*/
 function ringAlarm() {
-  alarmAudio.loop = true;
   alarmAudio.play();
 }
 
 function stopAlarm() {
-  alarmAudio.stop();
+  alarmAudio.pause();
 }
 
 ////FUNCTIONS GENERAL
@@ -224,7 +223,7 @@ function onclickNewWorkSession() {
 }
 
 function onclickBreakCallButton() {
-  timeCalled = 5 * 60 * 1000;
+  timeCalled = 5 * 1000;
   sessionTime = timeCalled;
   transformTimeAsADate(sessionTime);
   timerView.textContent = `${minutes} mn : ${secondes} s`;
@@ -254,10 +253,11 @@ function countDown() {
   secondes = timeAsADate.getSeconds();
   timerView.textContent = `${minutes} mn : ${secondes} s`;
   if (sessionTime < 0) {
-    buttonAlarm.style.display = "none";
+    clearInterval(interval);
+    timerView.textContent = `Time out`;
+    containerAlarm.style.display = "flex";
     ringAlarm();
-    buttonAlarm.addEventListener("click", stopAlarm);
-    stop();
+    containerAlarm.addEventListener("click", stopAlarm);
   }
 }
 

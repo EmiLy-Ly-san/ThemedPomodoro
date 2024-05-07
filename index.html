@@ -8,58 +8,137 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <div class="container">
-      <div class= "rainbow">
-        <div class= "workRainbow">
-      <div class= "lime"> 
-       <div class=  "peach">
-           <div class=  "corail">
-              <div class=  "rose">
-                 <div class=  "purple">
-                   <div class= "rainbowBackgroundUp">
+    <div class="mainContainer">
+      <svg class="circleLime" height="30rem" width="30rem">
+        <circle class="circleLime__Stroke" stroke-width="1.5rem" stroke="#fbf8cc" stroke-linecap="round" r="12rem" cx="15rem" cy="15rem" fill="transparent"></circle>
+      </svg>
+      <svg class="circlePeach" height="27rem" width="27rem">
+        <circle class="circlePeach__Stroke" stroke-width="1.5rem" stroke="#fde4cf" stroke-linecap="round" r="10.5rem" cx="13.5rem" cy="13.5rem" fill="transparent"></circle>
+      </svg>
+      <svg class="circleCorail" height="24rem" width="24rem">
+        <circle class="circlePeach__Stroke" stroke-width="1.5rem" stroke="#ffcfd2" stroke-linecap="round" r="9rem" cx="12rem" cy="12rem" fill="transparent"></circle>
+      </svg>
+      <svg class="circlePink" height="21rem" width="21rem">
+        <circle class="circlePeach__Stroke" stroke-width="1.5rem" stroke="#f1c0e8" stroke-linecap="round" r="7.5rem" cx="10.5rem" cy="10.5rem" fill="transparent"></circle>
+      </svg>
+      <svg class="circlePurple" height="18rem" width="18rem">
+        <circle class="circlePeach__Stroke" stroke-width="1.5rem" stroke="#cfbaf0" stroke-linecap="round" r="6rem" cx="9rem" cy="9rem" fill="transparent"></circle>
+      </svg>
+      <!--< class="rainbowContainer">
+          <div class="circleLime1"></div>
+          <div class="containerCircleLime2">
+            <div class="circleLime2"></div>
+          </div>
+          <div class="circlePeach1"></div>
+          <div class="containerCirclePeach2">
+            <div class="circlePeach2"></div>
+          </div>
+          <div class="circleCorail1"></div>
+          <div class="containerCircleCorail2">
+            <div class="circleCorail2"></div>
+          </div>
+          <div class="circlePink1"></div>
+          <div class="containerCirclePink2">
+            <div class="circlePink2"></div>
+          </div>
+          <div class="circlePurple1"></div>
+          <div class="containerCirclePurple2">
+            <div class="circlePurple2"></div>
+          </div>
+
+          <!--<div class="rainbow-lime">
+            <div class="rainbow-peach">
+              <div class="rainbow-corail">
+                <div class="rainbow-pink">
+                  <div class="rainbow-purple"></div>
+                </div>
+              </div>
+            </div>-->
+          
+        
+
+        <!--<div class= "rainbow">
+          <div class= "workRainbow">
+            <div class= "lime"> 
+              <div class=  "peach">
+                <div class=  "corail">
+                  <div class=  "rose">
+                    <div class=  "purple">
+                      <div class= "rainbowBackgroundUp">
+                      </div>
                     </div>
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-       <div class= "breakRainbow">
-                  <div class= "blue">
-                     <div class= "skyBlue">
-                        <div class= "lightBlue">
-                         <div class= "green">
-                            <div class= "limeGreen">
-                              <div class= "rainbowbackgroundSub">
-                           </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class= "breakRainbow">
+              <div class= "blue">
+                <div class= "skyBlue">
+                    <div class= "lightBlue">
+                      <div class= "green">
+                        <div class= "limeGreen">
+                          <div class= "rainbowbackgroundSub">
+                          </div>
                         </div>
-                     </div> 
-                   </div>
-                 </div>   
-             </div>
+                      </div> 
+                  </div>
+                </div>   
+              </div>
+          </div>
         </div>
-    </div>
+      </div> -->
+        <button class="containerAlarm doubleBorder">
+          <img
+            class="iconAlarm animationRotation"
+            src="https://raw.githubusercontent.com/EmiLy-Ly-san/PomodoroRainbow/e638d9cc2985da2d5109e35b72fac24d3130a1fb/images/notification-bell-svgrepo-com.svg"
+            alt="Icone de l'alarme"
+          />
+        </button>
       </div>
-    
-      <h1>Pomodoro timer !</h1>
-      <div class="timerView"></div>
-      <div class: "possibilitiesContainer">
-        <div class= "buttonsBar">  
-            <div class= "buttonPlay">
-              <div class= "play cursor"></div>
+
+      <div class="assetsContainer">
+        <div class="timerView"></div>
+        <div class="possibilitiesContainer">
+          <div class="buttonsBar">
+            <div class="buttonPlay">
+              <div class="play cursor"></div>
             </div>
-            <div class= "buttonPause">
-              <div class= "pause cursor"></div>
+            <div class="buttonPause">
+              <div class="pause cursor"></div>
             </div>
-            <div class= "buttonStop">
-              <div class= "stop cursor"></div> 
+            <div class="buttonStop">
+              <div class="stop cursor"></div>
             </div>
-         </div>
-          <div class= "choiceBar">
-            <button class= "workSession cursor choice" > Work session</button>
-            <button class= "breakSession cursor choice">New break </button> 
-          </div>  
-      </div> 
+          </div>
+          <div class="choiceBar">
+            <div class="choiceSession">
+              <button class="workSession cursor choice">Work session</button>
+              <button class="breakSession cursor choice">New break</button>
+            </div>
+            <div class="theme">
+              <button class="starWars cursor choiceTheme">
+                <img
+                  src="images/icons8-star-wars-black.svg"
+                  alt="Icone de Stars War"
+                />
+              </button>
+              <button class="strangerThings cursor choiceTheme">
+                <img
+                  src="images/icons8-choses-étranges.svg"
+                  alt="Icone de Stranger Things"
+                />
+              </button>
+              <button class="animalCrossing cursor choiceTheme">
+                <img
+                  src="images/icons8-traversée-d'animaux (1).svg"
+                  alt="Icone de Animal Crossing"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
