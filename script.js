@@ -27,14 +27,13 @@ let timeCalled;
 let minutes = 25;
 let secondes = "00";
 let interval;
-//Alarm
-let alarmAudio = new Audio("/alarms/marimba-ringtone-2-185153.mp3");
-let containerAlarm = document.querySelector(".containerAlarm");
+
+let alarmAudio = new Audio("alarms/Voicy_Star Wars Main Theme (Full).mp3");
+let stopAlarmButton = document.querySelector(".stopAlarmButton");
 
 //THEMES//
 class Theme {
   constructor(themeConfig) {
-    this.background = themeConfig.background;
     this.circle1 = themeConfig.circle1;
     this.circle2 = themeConfig.circle2;
     this.circle3 = themeConfig.circle3;
@@ -42,48 +41,27 @@ class Theme {
     this.circle5 = themeConfig.circle5;
     this.ringSound = themeConfig.ringSound;
     this.ringPicture = themeConfig.ringPicture;
-    this.buttonsColor = themeConfig.buttonsColor;
   }
 }
 
 const starWarsConfig = {
-  background: "#325EAA",
-  circle1: "#A3C4F3",
-  circle2: "#90DBF4",
-  circle3: "#8EECF5",
-  circle4: "#98F5E1",
-  circle5: "#B9FBC0",
   ringSound: "alarms/Voicy_Star Wars Main Theme (Full).mp3",
   ringPicture: "images/icons8-soldat-d'assaut.svg",
-  buttonsColor: "#325EAA",
 };
 
-/*const strangerThingsConfig = {
-  background:,
-  circle1:.
-  circle2:,
-  circle3:,
-  circle4:,
-  circle5:,
-  ringSound:,
-  ringPicture:,
-};*/
+const strangerThingsConfig = {
+  ringSound: "alarms/Voicy_stranger things beat.mp3",
+  ringPicture: "images/icons8-maxine-mayfield.svg",
+};
 
 const animalCrossingConfig = {
-  background: "#ff8c9a",
-  circle1: "#fbf8cc",
-  circle2: "#fde4cf",
-  circle3: "#ffcfd2",
-  circle4: "#f1c0e8",
-  circle5: "#cfbaf0",
   ringSound: "alarms/Voicy_Animal Crossing New Horizons Theme music.mp3",
   ringPicture: "images/Bluebear_NH_Villager_Icon.png",
-  buttonsColor: "#ff8c9a",
 };
 
 const themeCollection = {
   starWars: new Theme(starWarsConfig),
-  /*strangerThings: new Theme(strangerThingsConfig),*/
+  strangerThings: new Theme(strangerThingsConfig),
   animalCrossing: new Theme(animalCrossingConfig),
 };
 
@@ -101,39 +79,31 @@ function themeUserSet() {
 }
 
 function letTheme(themeUserChoice) {
-  document.body.style.background = themeUserChoice.background;
-  document
-    .querySelector(".circle1__Stroke")
-    .setAttribute("stroke", `${themeUserChoice.circle1}`);
-  document
-    .querySelector(".circle2__Stroke")
-    .setAttribute("stroke", `${themeUserChoice.circle2}`);
-  document
-    .querySelector(".circle3__Stroke")
-    .setAttribute("stroke", `${themeUserChoice.circle3}`);
-  document
-    .querySelector(".circle4__Stroke")
-    .setAttribute("stroke", `${themeUserChoice.circle4}`);
-  document
-    .querySelector(".circle5__Stroke")
-    .setAttribute("stroke", `${themeUserChoice.circle5}`);
+  //GENERALS COLORS
+  const themeButtons = document.querySelectorAll("button[data-themeColors]");
+  [...themeButtons].forEach(function (button) {
+    button.addEventListener("click", () => {
+      const currentButtonThemeColors = button.getAttribute("data-themeColors");
+      const newBodyThemeClassName = `themeColors-${currentButtonThemeColors}`;
+      document.body.classList = ""; //NEED TO LEARN REGEXP TO FIX IT BETTER
+      document.body.classList.add(newBodyThemeClassName);
+    });
+  });
+  //ALARM SETTING
   alarmAudio = new Audio(`${themeUserChoice.ringSound}`);
   document
     .querySelector(".iconAlarm")
     .setAttribute("src", `${themeUserChoice.ringPicture}`);
-  const choices = document.getElementsByClassName("choice");
-  Array.from(choices).forEach(function (choice) {
-    choice.style.background = themeUserChoice.buttonsColor;
-  });
 }
 
 //STYLE AND CONTENT PRESET
 timerView.textContent = `${minutes} mn : ${secondes} s`;
-WorkSessionButtonDisplayInline();
+WorkSessionButtonDisplayFlex();
 WorkSessionButtonActiv();
-breakSessionButtonDisplayInline();
+breakSessionButtonDisplayFlex();
 breakSessionButtonActiv();
 document.querySelector(".buttonsBar").style.display = "none";
+stopAlarmButton.style.display = "none";
 //containerAlarm.style.display = "none";
 
 // FUNCTION INTERACTIVITY
@@ -147,11 +117,11 @@ document.querySelector(".buttonsBar").style.display = "none";
 }
 
 function workRainbowPink() {
-  workLimeRainbow.style.background = "#DD7884";
-  workPeachRainbow.style.background = "#DD7884";
-  workCorailRainbow.style.background = "#DD7884";
-  workRoseRainbow.style.background = "#DD7884";
-  workPurpleRainbow.style.background = "#DD7884";
+  workLimeRainbow.style.background = "var(--shadowColor)";
+  workPeachRainbow.style.background = "var(--shadowColor)";
+  workCorailRainbow.style.background = "var(--shadowColor)";
+  workRoseRainbow.style.background = "var(--shadowColor)";
+  workPurpleRainbow.style.background = "var(--shadowColor)";
 }
 
 function breakRainbowInitialColor() {
@@ -163,26 +133,26 @@ function breakRainbowInitialColor() {
 }
 
 function breakRainbowPink() {
-  breakBlueRainbow.style.background = "#DD7884";
-  breakSkyBlueRainbow.style.background = "#DD7884";
-  breakLightBlueRainbow.style.background = "#DD7884";
-  breakGreenRainbow.style.background = "#DD7884";
-  breakLimeGreenRainbow.style.background = "#DD7884";
+  breakBlueRainbow.style.background = "var(--shadowColor)";
+  breakSkyBlueRainbow.style.background = "var(--shadowColor)";
+  breakLightBlueRainbow.style.background = "var(--shadowColor)";
+  breakGreenRainbow.style.background = "var(--shadowColor)";
+  breakLimeGreenRainbow.style.background = "var(--shadowColor)";
 }*/
 
 /******PLAYBUTTON*/
 function playButtonActiv() {
   playButton.addEventListener("click", startSession);
   playButton.style.cursor = "pointer";
-  backPlayButton.style.border = "solid 3px #DCFFE5";
-  backPlayButton.style.background = "#FF8C9A";
+  backPlayButton.style.border = "solid 3px var(--secondaryColor)";
+  backPlayButton.style.background = "var(--primaryColor)";
 }
 
 function playButtonInactiv() {
   playButton.removeEventListener("click", startSession);
   playButton.style.cursor = "none";
-  backPlayButton.style.border = "solid 1px #DCFFE5";
-  backPlayButton.style.background = "#DD7884";
+  backPlayButton.style.border = "solid 1px var(--secondaryColor)";
+  backPlayButton.style.background = "var(--shadowColor)";
 }
 
 function playButtonDisplayBlock() {
@@ -197,15 +167,15 @@ function playButtonDisplayNone() {
 function pauseButtonActiv() {
   pauseButton.addEventListener("click", pauseSession);
   pauseButton.style.cursor = "pointer";
-  backPauseButton.style.border = "solid 3px #DCFFE5";
-  backPauseButton.style.background = "#FF8C9A";
+  backPauseButton.style.border = "solid 3px var(--secondaryColor)";
+  backPauseButton.style.background = "var(--primaryColor)";
 }
 
 function pauseButtonInactiv() {
   pauseButton.removeEventListener("click", pauseSession);
   pauseButton.style.cursor = "none";
-  backPauseButton.style.border = "solid 1px #DCFFE5";
-  backPauseButton.style.background = "#DD7884";
+  backPauseButton.style.border = "solid 1px var(--secondaryColor)";
+  backPauseButton.style.background = "var(--shadowColor)";
 }
 
 function pauseButtonDisplayBlock() {
@@ -220,15 +190,15 @@ function pauseButtonDisplayNone() {
 function stopButtonActiv() {
   stopButton.addEventListener("click", stop);
   stopButton.style.cursor = "pointer";
-  backStopButton.style.border = "solid 3px #DCFFE5";
-  backStopButton.style.background = "#FF8C9A";
+  backStopButton.style.border = "solid 3px var(--secondaryColor)";
+  backStopButton.style.background = "var(--primaryColor)";
 }
 
 function stopButtonInactiv() {
   stopButton.removeEventListener("click", stop);
   stopButton.style.cursor = "none";
-  backStopButton.style.border = "solid 1px #DCFFE5";
-  backStopButton.style.background = "#DD7884";
+  backStopButton.style.border = "solid 1px var(--secondaryColor)";
+  backStopButton.style.background = "var(--shadowColor)";
 }
 
 function stopButtonDisplayBlock() {
@@ -243,19 +213,19 @@ function stopButtonDisplayNone() {
 function WorkSessionButtonActiv() {
   WorkSessionButton.addEventListener("click", onclickNewWorkSession);
   WorkSessionButton.style.cursor = "pointer";
-  WorkSessionButton.style.border = "solid 3px #DCFFE5";
-  WorkSessionButton.style.background = "#FF8C9A";
+  WorkSessionButton.style.border = "solid 3px var(--secondaryColor)";
+  WorkSessionButton.style.background = "var(--primaryColor)";
 }
 
 function WorkSessionButtonInactiv() {
   WorkSessionButton.removeEventListener("click", onclickNewWorkSession);
   WorkSessionButton.style.cursor = "none";
-  WorkSessionButton.style.border = "solid 1px #DCFFE5";
-  WorkSessionButton.style.background = "#DD7884";
+  WorkSessionButton.style.border = "solid 1px var(--secondaryColor)";
+  WorkSessionButton.style.background = "var(--shadowColor)";
 }
 
-function WorkSessionButtonDisplayInline() {
-  WorkSessionButton.style.display = "inline";
+function WorkSessionButtonDisplayFlex() {
+  WorkSessionButton.style.display = "flex";
 }
 
 function WorkSessionButtonDisplayNone() {
@@ -266,32 +236,53 @@ function WorkSessionButtonDisplayNone() {
 function breakSessionButtonActiv() {
   breakSessionButton.addEventListener("click", onclickBreakCallButton);
   breakSessionButton.style.cursor = "pointer";
-  breakSessionButton.style.border = "solid 3px #DCFFE5";
-  breakSessionButton.style.background = "#FF8C9A";
+  breakSessionButton.style.border = "solid 3px var(--secondaryColor)";
+  breakSessionButton.style.background = "var(--primaryColor)";
 }
 
 function breakSessionButtonInactiv() {
   breakSessionButton.removeEventListener("click", onclickBreakCallButton);
   breakSessionButton.style.cursor = "none";
-  breakSessionButton.style.border = "solid 1px #DCFFE5";
-  breakSessionButton.style.background = "#DD7884";
+  breakSessionButton.style.border = "solid 1px var(--secondaryColor)";
+  breakSessionButton.style.background = "var(--shadowColor)";
 }
 
-function breakSessionButtonDisplayInline() {
-  breakSessionButton.style.display = "inline";
+function breakSessionButtonDisplayFlex() {
+  breakSessionButton.style.display = "flex";
 }
 
 function breakSessionButtonDisplayNone() {
   breakSessionButton.style.display = "none";
 }
 
+/******ANIMATION ICON ALARM */
+const iconAlarm = document.querySelector(".iconAlarm");
+const containerAlarm = document.querySelector(".containerAlarm");
+
+function animateIconAlarm() {
+  iconAlarm.classList.add("animationRotation");
+  containerAlarm.classList.add("doubleBorder");
+}
+
+function dontAnimateIconAlarm() {
+  iconAlarm.classList.remove("animationRotation");
+  containerAlarm.classList.remove("doubleBorder");
+}
+
 /******AUDIO ALARM*/
 function ringAlarm() {
+  alarmAudio.loop = true;
   alarmAudio.play();
 }
 
 function stopAlarm() {
   alarmAudio.pause();
+  document.querySelector(".workSession").style.display = "flex";
+  document.querySelector(".breakSession").style.display = "flex";
+  stopAlarmButton.style.display = "none";
+  timerView.textContent = `New session ?`;
+  breakSessionButtonActiv();
+  dontAnimateIconAlarm();
 }
 
 ////FUNCTIONS GENERAL
@@ -309,6 +300,7 @@ function onclickNewWorkSession() {
   timerView.textContent = `${minutes} mn : ${secondes} s`;
   startSession();
   document.querySelector(".buttonsBar").style.display = "flex";
+
   WorkSessionButtonInactiv();
   breakSessionButtonActiv();
   playButtonInactiv();
@@ -346,10 +338,14 @@ function countDown() {
   timerView.textContent = `${minutes} mn : ${secondes} s`;
   if (sessionTime < 0) {
     clearInterval(interval);
+    document.querySelector(".buttonsBar").style.display = "none";
     timerView.textContent = `Time out`;
-    containerAlarm.style.display = "flex";
+    stopAlarmButton.style.display = "flex";
     ringAlarm();
-    containerAlarm.addEventListener("click", stopAlarm);
+    animateIconAlarm();
+    stopAlarmButton.addEventListener("click", stopAlarm);
+    WorkSessionButtonDisplayNone();
+    breakSessionButtonDisplayNone();
   }
 }
 

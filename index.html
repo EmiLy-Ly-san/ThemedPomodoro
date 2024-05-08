@@ -7,13 +7,12 @@
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
-  <body>
+  <body class="themeColors-starWarsColors">
     <div class="mainContainer">
       <svg class="circle1" height="30rem" width="30rem">
         <circle
           class="circle1__Stroke"
           stroke-width="1.5rem"
-          stroke="#fbf8cc"
           stroke-linecap="round"
           r="12rem"
           cx="15rem"
@@ -25,7 +24,6 @@
         <circle
           class="circle2__Stroke"
           stroke-width="1.5rem"
-          stroke="#fde4cf"
           stroke-linecap="round"
           r="10.5rem"
           cx="13.5rem"
@@ -37,7 +35,6 @@
         <circle
           class="circle3__Stroke"
           stroke-width="1.5rem"
-          stroke="#ffcfd2"
           stroke-linecap="round"
           r="9rem"
           cx="12rem"
@@ -49,7 +46,6 @@
         <circle
           class="circle4__Stroke"
           stroke-width="1.5rem"
-          stroke="#f1c0e8"
           stroke-linecap="round"
           r="7.5rem"
           cx="10.5rem"
@@ -61,7 +57,6 @@
         <circle
           class="circle5__Stroke"
           stroke-width="1.5rem"
-          stroke="#cfbaf0"
           stroke-linecap="round"
           r="6rem"
           cx="9rem"
@@ -69,10 +64,10 @@
           fill="transparent"
         ></circle>
       </svg>
-      <button class="containerAlarm doubleBorder">
+      <button class="containerAlarm">
         <img
-          class="iconAlarm animationRotation"
-          src="https://raw.githubusercontent.com/EmiLy-Ly-san/PomodoroRainbow/e638d9cc2985da2d5109e35b72fac24d3130a1fb/images/notification-bell-svgrepo-com.svg"
+          class="iconAlarm"
+          src="images/icons8-soldat-d'assaut.svg"
           alt="Icone de l'alarme"
         />
       </button>
@@ -95,18 +90,25 @@
         <div class="choiceBar">
           <div class="choiceSession">
             <button class="workSession cursor choice">Work session</button>
+            <button class="stopAlarmButton cursor">Stop Alarm</button>
             <button class="breakSession cursor choice">New break</button>
           </div>
           <div class="theme">
-            <button class="starWars cursor choiceTheme" id="starWars">
+            <button
+              class="starWars cursor choiceTheme"
+              id="starWars"
+              data-themeColors="starWarsColors"
+            >
               <img
                 src="images/icons8-star-wars-black.svg"
+                c49bdf
                 alt="Icone de Stars War"
               />
             </button>
             <button
               class="strangerThings cursor choiceTheme"
               id="strangerThings"
+              data-themeColors="strangerThingsColors"
             >
               <img
                 src="images/icons8-choses-étranges.svg"
@@ -116,6 +118,7 @@
             <button
               class="animalCrossing cursor choiceTheme"
               id="animalCrossing"
+              data-themeColors="animalCrossingColors"
             >
               <img
                 src="images/icons8-traversée-d'animaux (1).svg"

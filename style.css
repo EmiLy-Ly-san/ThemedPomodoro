@@ -1,4 +1,43 @@
 /*GENERAL*/
+:root {
+  --primaryColor: #ff8c9a;
+  --secondaryColor: #dcffe5;
+  --shadowColor: #dd7884;
+}
+
+body.themeColors-starWarsColors {
+  --primaryColor: #325eaa;
+  --secondaryColor: #dcffe5;
+  --shadowColor: #274881;
+  --circle1: #a3c4f3;
+  --circle2: #90dbf4;
+  --circle3: #8eecf5;
+  --circle4: #98f5e1;
+  --circle5: #b9fbc0;
+}
+
+body.themeColors-strangerThingsColors {
+  --primaryColor: #cfbaf0;
+  --secondaryColor: #fbf8cc;
+  --shadowColor: #ad9bca;
+  --circle1: #ffde17;
+  --circle2: #7fd3f7;
+  --circle3: #84f2b3;
+  --circle4: #c49bdf;
+  --circle5: #f7adce;
+}
+
+body.themeColors-animalCrossingColors {
+  --primaryColor: #ff8c9a;
+  --secondaryColor: #dcffe5;
+  --shadowColor: #dd7884;
+  --circle1: #fbf8cc;
+  --circle2: #fde4cf;
+  --circle3: #ffcfd2;
+  --circle4: #f1c0e8;
+  --circle5: #cfbaf0;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -8,7 +47,7 @@
 body {
   width: 100vw;
   height: 100vh;
-  background: #ff8c9a;
+  background: var(--primaryColor);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,9 +92,11 @@ body {
 .circle5 {
   position: absolute;
   top: 6rem;
+  bottom: 6rem;
 }
 
 .circle1__Stroke {
+  stroke: var(--circle1);
   stroke-dasharray: calc(12rem * 2 * PI) calc(12rem * 2 * PI); /*circomference*/
   stroke-dashoffset: calc(12rem * 2 * PI); /*cache donc tout le dasharray*/
   transform: rotate(-180deg);
@@ -65,6 +106,7 @@ body {
 }
 
 .circle2__Stroke {
+  stroke: var(--circle2);
   stroke-dasharray: calc(10.5rem * 2 * PI) calc(10.5rem * 2 * PI); /*circomference*/
   stroke-dashoffset: calc(10.5rem * 2 * PI); /*cache donc tout le dasharray*/
   transform: rotate(-180deg);
@@ -75,6 +117,7 @@ body {
 }
 
 .circle3__Stroke {
+  stroke: var(--circle3);
   stroke-dasharray: calc(9rem * 2 * PI) calc(9rem * 2 * PI); /*circomference*/
   stroke-dashoffset: calc(9rem * 2 * PI); /*cache donc tout le dasharray*/
   transform: rotate(-180deg);
@@ -85,6 +128,7 @@ body {
 }
 
 .circle4__Stroke {
+  stroke: var(--circle4);
   stroke-dasharray: calc(7.5rem * 2 * PI) calc(7.5rem * 2 * PI); /*circomference*/
   stroke-dashoffset: calc(7.5rem * 2 * PI); /*cache donc tout le dasharray*/
   transform: rotate(-180deg);
@@ -95,6 +139,7 @@ body {
 }
 
 .circle5__Stroke {
+  stroke: var(--circle5);
   stroke-dasharray: calc(6rem * 2 * PI) calc(6rem * 2 * PI); /*circomference*/
   stroke-dashoffset: calc(6rem * 2 * PI); /*cache donc tout le dasharray*/
   transform: rotate(-180deg);
@@ -118,7 +163,7 @@ body {
   align-items: center;
   margin: auto;
   border-radius: 50%;
-  background: #dcffe5;
+  background: var(--secondaryColor);
   border: none;
   position: absolute;
   top: 16em;
@@ -131,7 +176,7 @@ body {
 
 @keyframes doubleBorder {
   50% {
-    box-shadow: 0px 0px 0 6px #dcffe5;
+    box-shadow: 0px 0px 0 6px var(--secondaryColor);
   }
 }
 
@@ -163,7 +208,7 @@ body {
   font-family: sans-serif;
   font-size: 30px;
   font-weight: 600;
-  color: #dcffe5;
+  color: var(--secondaryColor);
   text-align: center;
 }
 
@@ -172,8 +217,9 @@ body {
   align-items: center;
   justify-content: space-evenly;
   height: 3.5rem;
-  border: solid 3px #dcffe5;
+  border: solid 3px var(--secondaryColor);
   border-radius: 40px;
+  margin-top: 0.5rem;
 }
 
 .choiceBar {
@@ -190,7 +236,7 @@ body {
 }
 
 .buttonPlay {
-  border: solid 3px #dcffe5;
+  border: solid 3px var(--secondaryColor);
   border-radius: 50%;
   width: 2.5rem;
   height: 2.5rem;
@@ -199,24 +245,28 @@ body {
   align-items: center;
 }
 
+.buttonPlay:active {
+  border: solid 3px var(--secondaryColor);
+}
+
 .play {
   width: 0;
   height: 0;
   border-bottom: 15px solid transparent;
   border-top: 15px solid transparent;
-  border-left: 15px solid #dcffe5;
+  border-left: 15px solid var(--secondaryColor);
 }
 
 .pause {
   width: 7px;
   height: 20px;
-  border-right: solid 3px #dcffe5;
-  border-left: solid 3px #dcffe5;
+  border-right: solid 3px var(--secondaryColor);
+  border-left: solid 3px var(--secondaryColor);
   position: relative;
 }
 
 .buttonPause {
-  border: solid 3px #dcffe5;
+  border: solid 3px var(--secondaryColor);
   border-radius: 50%;
   width: 2.5rem;
   height: 2.5rem;
@@ -228,12 +278,11 @@ body {
 .stop {
   width: 20px;
   height: 20px;
-  background: #dcffe5;
+  background: var(--secondaryColor);
   position: relative;
 }
 
 .buttonStop {
-  border: solid 3px #dcffe5;
   border-radius: 50%;
   width: 2.5rem;
   height: 2.5rem;
@@ -241,18 +290,28 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 .choiceSession {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.stopAlarmButton {
+  border-radius: 40px;
+  border: solid 3px var(--secondaryColor);
+  color: var(--secondaryColor);
+  font-family: sans-serif;
+  padding: 0.5rem;
+  background: none;
 }
 
 .choice {
-  border: solid 3px #dcffe5;
   border-radius: 40px;
-  background: #ff8c9a;
   padding: 0.5rem;
   font-family: sans-serif;
-  color: #dcffe5;
+  color: var(--secondaryColor);
+  background: none;
 }
 
 .theme {
