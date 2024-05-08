@@ -31,71 +31,77 @@ body {
   align-items: center;
 }
 
-.circleLime {
+.circle1 {
   position: absolute;
   top: 0;
 }
-.circlePeach {
+.circle2 {
   position: absolute;
   top: 1.5rem;
-  bottom: 1.5rem;
 }
 
-.circleCorail {
+.circle3 {
   position: absolute;
   top: 3rem;
-  bottom: 3rem;
 }
 
-.circlePink {
+.circle4 {
   position: absolute;
   top: 4.5rem;
-  bottom: 4.5rem;
 }
 
-.circlePurple {
+.circle5 {
   position: absolute;
   top: 6rem;
-  bottom: 6rem;
 }
 
-.circleLime__Stroke {
+.circle1__Stroke {
   stroke-dasharray: calc(12rem * 2 * PI) calc(12rem * 2 * PI); /*circomference*/
   stroke-dashoffset: calc(12rem * 2 * PI); /*cache donc tout le dasharray*/
   transform: rotate(-180deg);
   transform-origin: 50% 50%;
-  animation: load 6s ease-in;
+  animation: load 4s ease-in;
   animation-fill-mode: forwards;
 }
 
-.circlePeach__Stroke {
+.circle2__Stroke {
   stroke-dasharray: calc(10.5rem * 2 * PI) calc(10.5rem * 2 * PI); /*circomference*/
   stroke-dashoffset: calc(10.5rem * 2 * PI); /*cache donc tout le dasharray*/
   transform: rotate(-180deg);
   transform-origin: 50% 50%;
-  animation: load 5.5s ease-in;
+  animation: load 4s ease-in;
+  animation-delay: 0.4s;
   animation-fill-mode: forwards;
 }
 
-.circleCorail__Stroke {
+.circle3__Stroke {
   stroke-dasharray: calc(9rem * 2 * PI) calc(9rem * 2 * PI); /*circomference*/
   stroke-dashoffset: calc(9rem * 2 * PI); /*cache donc tout le dasharray*/
   transform: rotate(-180deg);
   transform-origin: 50% 50%;
+  animation: load 4s ease-in;
+  animation-delay: 0.8s;
+  animation-fill-mode: forwards;
 }
 
-.circlePink__Stroke {
+.circle4__Stroke {
   stroke-dasharray: calc(7.5rem * 2 * PI) calc(7.5rem * 2 * PI); /*circomference*/
   stroke-dashoffset: calc(7.5rem * 2 * PI); /*cache donc tout le dasharray*/
   transform: rotate(-180deg);
   transform-origin: 50% 50%;
+  animation: load 4s ease-in;
+  animation-delay: 1.2s;
+  animation-fill-mode: forwards;
 }
 
-.circlePurple__Stroke {
+.circle5__Stroke {
   stroke-dasharray: calc(6rem * 2 * PI) calc(6rem * 2 * PI); /*circomference*/
   stroke-dashoffset: calc(6rem * 2 * PI); /*cache donc tout le dasharray*/
   transform: rotate(-180deg);
   transform-origin: 50% 50%;
+  animation: load 4s ease-in;
+  animation-delay: 1.6s;
+  animation-fill-mode: forwards;
 }
 
 @keyframes load {

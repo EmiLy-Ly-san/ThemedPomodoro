@@ -25,11 +25,107 @@ let breakLimeGreenRainbow = document.querySelector(".limeGreen");*/
 let sessionTime;
 let timeCalled;
 let minutes = 25;
-let secondes = 00;
+let secondes = "00";
 let interval;
 //Alarm
 let alarmAudio = new Audio("/alarms/marimba-ringtone-2-185153.mp3");
 let containerAlarm = document.querySelector(".containerAlarm");
+
+//THEMES//
+class Theme {
+  constructor(themeConfig) {
+    this.background = themeConfig.background;
+    this.circle1 = themeConfig.circle1;
+    this.circle2 = themeConfig.circle2;
+    this.circle3 = themeConfig.circle3;
+    this.circle4 = themeConfig.circle4;
+    this.circle5 = themeConfig.circle5;
+    this.ringSound = themeConfig.ringSound;
+    this.ringPicture = themeConfig.ringPicture;
+    this.buttonsColor = themeConfig.buttonsColor;
+  }
+}
+
+const starWarsConfig = {
+  background: "#325EAA",
+  circle1: "#A3C4F3",
+  circle2: "#90DBF4",
+  circle3: "#8EECF5",
+  circle4: "#98F5E1",
+  circle5: "#B9FBC0",
+  ringSound: "alarms/Voicy_Star Wars Main Theme (Full).mp3",
+  ringPicture: "images/icons8-soldat-d'assaut.svg",
+  buttonsColor: "#325EAA",
+};
+
+/*const strangerThingsConfig = {
+  background:,
+  circle1:.
+  circle2:,
+  circle3:,
+  circle4:,
+  circle5:,
+  ringSound:,
+  ringPicture:,
+};*/
+
+const animalCrossingConfig = {
+  background: "#ff8c9a",
+  circle1: "#fbf8cc",
+  circle2: "#fde4cf",
+  circle3: "#ffcfd2",
+  circle4: "#f1c0e8",
+  circle5: "#cfbaf0",
+  ringSound: "alarms/Voicy_Animal Crossing New Horizons Theme music.mp3",
+  ringPicture: "images/Bluebear_NH_Villager_Icon.png",
+  buttonsColor: "#ff8c9a",
+};
+
+const themeCollection = {
+  starWars: new Theme(starWarsConfig),
+  /*strangerThings: new Theme(strangerThingsConfig),*/
+  animalCrossing: new Theme(animalCrossingConfig),
+};
+
+let themeButtons = document.querySelectorAll(".choiceTheme");
+let themeUserChoice;
+
+function themeUserSet() {
+  themeButtons.forEach(function (themeButton) {
+    themeButton.addEventListener("click", () => {
+      themeUserChoice = themeCollection[themeButton.id];
+      console.log(themeUserChoice);
+      letTheme(themeUserChoice);
+    });
+  });
+}
+
+function letTheme(themeUserChoice) {
+  document.body.style.background = themeUserChoice.background;
+  document
+    .querySelector(".circle1__Stroke")
+    .setAttribute("stroke", `${themeUserChoice.circle1}`);
+  document
+    .querySelector(".circle2__Stroke")
+    .setAttribute("stroke", `${themeUserChoice.circle2}`);
+  document
+    .querySelector(".circle3__Stroke")
+    .setAttribute("stroke", `${themeUserChoice.circle3}`);
+  document
+    .querySelector(".circle4__Stroke")
+    .setAttribute("stroke", `${themeUserChoice.circle4}`);
+  document
+    .querySelector(".circle5__Stroke")
+    .setAttribute("stroke", `${themeUserChoice.circle5}`);
+  alarmAudio = new Audio(`${themeUserChoice.ringSound}`);
+  document
+    .querySelector(".iconAlarm")
+    .setAttribute("src", `${themeUserChoice.ringPicture}`);
+  const choices = document.getElementsByClassName("choice");
+  Array.from(choices).forEach(function (choice) {
+    choice.style.background = themeUserChoice.buttonsColor;
+  });
+}
 
 //STYLE AND CONTENT PRESET
 timerView.textContent = `${minutes} mn : ${secondes} s`;
@@ -272,3 +368,5 @@ function pauseSession() {
   pauseButtonInactiv();
   playButtonActiv();
 }
+
+themeUserSet();
