@@ -1,42 +1,4 @@
 /*GENERAL*/
-:root {
-  --primaryColor: #ff8c9a;
-  --secondaryColor: #dcffe5;
-  --shadowColor: #dd7884;
-}
-
-body.themeColors-starWarsColors {
-  --primaryColor: #325eaa;
-  --secondaryColor: #dcffe5;
-  --shadowColor: #274881;
-  --circle1: #a3c4f3;
-  --circle2: #90dbf4;
-  --circle3: #8eecf5;
-  --circle4: #98f5e1;
-  --circle5: #b9fbc0;
-}
-
-body.themeColors-strangerThingsColors {
-  --primaryColor: #cfbaf0;
-  --secondaryColor: #fbf8cc;
-  --shadowColor: #ad9bca;
-  --circle1: #ffde17;
-  --circle2: #7fd3f7;
-  --circle3: #84f2b3;
-  --circle4: #c49bdf;
-  --circle5: #f7adce;
-}
-
-body.themeColors-animalCrossingColors {
-  --primaryColor: #ff8c9a;
-  --secondaryColor: #dcffe5;
-  --shadowColor: #dd7884;
-  --circle1: #fbf8cc;
-  --circle2: #fde4cf;
-  --circle3: #ffcfd2;
-  --circle4: #f1c0e8;
-  --circle5: #cfbaf0;
-}
 
 * {
   padding: 0;
@@ -52,6 +14,88 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+:root {
+  --primaryColor: #ff8c9a;
+  --secondaryColor: #dcffe5;
+  --shadowColor: #dd7884;
+  --shadowSecondaryColor: #dcffe5ab;
+}
+
+body.themeColors-starWarsColors {
+  --primaryColor: #325eaa;
+  --secondaryColor: #dcffe5;
+  --shadowColor: #274881;
+  --shadowSecondaryColor: #dcffe5ab;
+  --circle1: #a3c4f3;
+  --circle2: #90dbf4;
+  --circle3: #8eecf5;
+  --circle4: #98f5e1;
+  --circle5: #b9fbc0;
+}
+
+body.themeColors-strangerThingsColors {
+  --primaryColor: #cfbaf0;
+  --secondaryColor: #fbf8cc;
+  --shadowColor: #ad9bca;
+  --shadowSecondaryColor: #fbf8cc8e;
+  --circle1: #ffde17;
+  --circle2: #7fd3f7;
+  --circle3: #84f2b3;
+  --circle4: #c49bdf;
+  --circle5: #f7adce;
+}
+
+body.themeColors-animalCrossingColors {
+  --primaryColor: #ff8c9a;
+  --secondaryColor: #dcffe5;
+  --shadowColor: #dd7884;
+  --shadowSecondaryColor: #dcffe5ab;
+  --circle1: #fbf8cc;
+  --circle2: #fde4cf;
+  --circle3: #ffcfd2;
+  --circle4: #f1c0e8;
+  --circle5: #cfbaf0;
+}
+
+body.themeColors-starWarsColors .iconStarWars {
+  transform: scale(1.3);
+  background: var(--circle5);
+  border-radius: 40px;
+}
+
+body.themeColors-starWarsColors .iconAnimalCrossing,
+.iconStrangerThings {
+  filter: grayScale(70%);
+  background: var(--shadowSecondaryColor);
+  border-radius: 40px;
+}
+
+body.themeColors-strangerThingsColors .iconStrangerThings {
+  transform: scale(1.3);
+  background: var(--circle5);
+  border-radius: 40px;
+}
+
+body.themeColors-strangerThingsColors .iconAnimalCrossing,
+.iconStarWars {
+  filter: grayScale(70%);
+  background: var(--shadowSecondaryColor);
+  border-radius: 40px;
+}
+
+body.themeColors-animalCrossingColors .iconAnimalCrossing {
+  transform: scale(1.3);
+  background: var(--circle5);
+  border-radius: 40px;
+}
+
+body.themeColors-animalCrossingColors .iconStarWars,
+.iconStrangerThings {
+  filter: grayScale(70%);
+  background: var(--shadowSecondaryColor);
+  border-radius: 40px;
 }
 
 /*CIRCLES + RING*/
@@ -318,14 +362,19 @@ body {
   position: relative;
   top: 0px;
   left: 0px;
-  z-index: 1;
   display: flex;
   justify-content: space-between;
   gap: 2rem;
   width: 100%;
+  background: var(--primaryColor);
+  border-radius: 40px;
+  padding: 1rem;
+  box-shadow: inset 0 0 0 3px var(--secondaryColor),
+    inset 0 0 0 6px var(--primaryColor);
 }
 
 .choiceTheme {
   border: none;
   background: none;
+  padding: 0.5rem;
 }
