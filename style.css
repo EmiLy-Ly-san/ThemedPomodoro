@@ -294,12 +294,6 @@ body.themeColors-animalCrossingColors .iconStarWars,
   border-left: 12px solid var(--secondaryColor);
 }
 
-body.pom-play .buttonPlay {
-  border: solid 1px var(--secondaryColor);
-  background: var(--shadowColor);
-  cursor: not-allowed;
-}
-
 .pause {
   width: 12px;
   height: 15px;
@@ -331,9 +325,9 @@ body.pom-play .buttonPlay {
   cursor: pointer;
 }
 
-.disabled {
+button:disabled {
   cursor: not-allowed;
-  border: "solid 1px var(--secondaryColor)";
+  border: none;
   background: var(--shadowColor);
 }
 

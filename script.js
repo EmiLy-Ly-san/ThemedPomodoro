@@ -138,53 +138,53 @@ function buttonsBarVisible() {
 /******PLAYBUTTON*/
 function playButtonAvailable() {
   playButton.addEventListener("click", startSession);
-  playButton.classList.remove("disabled");
+  playButton.removeAttribute("disabled");
 }
 
 function playButtonDisabled() {
-  playButton.classList.add("disabled");
+  playButton.setAttribute("disabled", "true");
 }
 
 /******PAUSEBUTTON*/
 function pauseButtonAvailable() {
   pauseButton.addEventListener("click", pause);
-  pauseButton.classList.remove("disabled");
+  pauseButton.removeAttribute("disabled");
 }
 
 function pauseButtonDisabled() {
-  pauseButton.classList.add("disabled");
+  pauseButton.setAttribute("disabled", "true");
 }
 
 /******STOPBUTTON*/
 function stopButtonAvailable() {
   stopButton.addEventListener("click", stop);
-  stopButton.classList.remove("disabled");
+  stopButton.removeAttribute("disabled");
 }
 
 function stopButtonDisabled() {
-  stopButton.classList.add("disabled");
+  stopButton.setAttribute("disabled", "true");
 }
 
 /******WORKSESSIONBUTTON*/
 function WorkSessionButtonAvailable() {
   WorkSessionButton.addEventListener("click", onclickNewWorkSession);
-  WorkSessionButton.classList.remove("disabled");
+  WorkSessionButton.removeAttribute("disabled");
   WorkSessionButton.classList.remove("hidden");
 }
 
 function WorkSessionButtonDisabled() {
-  WorkSessionButton.classList.add("disabled");
+  WorkSessionButton.setAttribute("disabled", "true");
 }
 
 /******BREAKSESSIONBUTTON*/
 function breakSessionButtonAvailable() {
   breakSessionButton.addEventListener("click", onclickBreakCallButton);
-  breakSessionButton.classList.remove("disabled");
+  breakSessionButton.removeAttribute("disabled");
   breakSessionButton.classList.remove("hidden");
 }
 
 function breakSessionButtonDisabled() {
-  breakSessionButton.classList.add("disabled");
+  breakSessionButton.setAttribute("disabled", "true");
 }
 
 /******ANIMATION ICON ALARM */
@@ -219,6 +219,7 @@ function stopAlarmButtonVisible() {
 function stopAlarm() {
   alarmAudio.pause();
   alarmAudio.loop = false;
+  alarmAudio.currentTime = 0;
   stopAlarmButtonHidden();
   timerView.textContent = `New session ?`;
   WorkSessionButtonAvailable();
@@ -268,17 +269,6 @@ function setTimeInTimerView(minutes, secondes) {
   } s`;
 }
 
-function startSession() {
-  document.body.classList.remove("pom-stop");
-  document.body.classList.remove("pom-pause");
-  document.body.classList.add("pom-play");
-  clearInterval(interval);
-  interval = setInterval(countDown, 1000);
-  playButtonAvailable();
-  pauseButtonAvailable();
-  stopButtonAvailable();
-}
-
 function countDown() {
   sessionTime = sessionTime - 1000;
   transformTimeAsADate(sessionTime);
@@ -295,6 +285,17 @@ function countDown() {
     animateIconAlarm();
     stopAlarmButtonVisible();
   }
+}
+
+function startSession() {
+  document.body.classList.remove("pom-stop");
+  document.body.classList.remove("pom-pause");
+  document.body.classList.add("pom-play");
+  clearInterval(interval);
+  interval = setInterval(countDown, 1000);
+  playButtonDisabled();
+  pauseButtonAvailable();
+  stopButtonAvailable();
 }
 
 function stop() {
@@ -316,6 +317,6 @@ function pause() {
   document.body.classList.add("pom-pause");
   clearInterval(interval);
   pauseButtonDisabled();
-  stopButtonDisabled();
+  // stopButtonDisabled();
   playButtonAvailable();
 }
