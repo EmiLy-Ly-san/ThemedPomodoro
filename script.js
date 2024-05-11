@@ -1,12 +1,10 @@
 //VARIABLES
 let timerView = document.querySelector(".timerView");
 //Buttons
-let playButton = document.querySelector(".play");
-let backPlayButton = document.querySelector(".buttonPlay");
-let stopButton = document.querySelector(".stop");
-let backStopButton = document.querySelector(".buttonStop");
-let pauseButton = document.querySelector(".pause");
-let backPauseButton = document.querySelector(".buttonPause");
+let buttonsBar = document.querySelector(".buttonsBar");
+let playButton = document.querySelector(".buttonPlay");
+let stopButton = document.querySelector(".buttonStop");
+let pauseButton = document.querySelector(".buttonPause");
 let breakSessionButton = document.querySelector(".breakSession");
 let WorkSessionButton = document.querySelector(".workSession");
 /*//workRainbow
@@ -34,11 +32,6 @@ let stopAlarmButton = document.querySelector(".stopAlarmButton");
 //THEMES//
 class Theme {
   constructor(themeConfig) {
-    this.circle1 = themeConfig.circle1;
-    this.circle2 = themeConfig.circle2;
-    this.circle3 = themeConfig.circle3;
-    this.circle4 = themeConfig.circle4;
-    this.circle5 = themeConfig.circle5;
     this.ringSound = themeConfig.ringSound;
     this.ringPicture = themeConfig.ringPicture;
   }
@@ -65,45 +58,38 @@ const themeCollection = {
   animalCrossing: new Theme(animalCrossingConfig),
 };
 
-let themeButtons = document.querySelectorAll(".choiceTheme");
+let themeButtons = document.querySelectorAll("button[data-themeColors]");
 let themeUserChoice;
 
-function themeUserSet() {
-  themeButtons.forEach(function (themeButton) {
+function setTheme() {
+  //GENERALS COLORS
+
+  [...themeButtons].forEach(function (themeButton) {
     themeButton.addEventListener("click", () => {
       themeUserChoice = themeCollection[themeButton.id];
       console.log(themeUserChoice);
-      letTheme(themeUserChoice);
-    });
-  });
-}
-
-function letTheme(themeUserChoice) {
-  //GENERALS COLORS
-  const themeButtons = document.querySelectorAll("button[data-themeColors]");
-  [...themeButtons].forEach(function (button) {
-    button.addEventListener("click", () => {
-      const currentButtonThemeColors = button.getAttribute("data-themeColors");
+      const currentButtonThemeColors =
+        themeButton.getAttribute("data-themeColors");
       const newBodyThemeClassName = `themeColors-${currentButtonThemeColors}`;
       document.body.classList = ""; //NEED TO LEARN REGEXP TO FIX IT BETTER
       document.body.classList.add(newBodyThemeClassName);
+
+      //ALARM SETTING
+      alarmAudio = new Audio(`${themeUserChoice.ringSound}`);
+      document
+        .querySelector(".iconAlarm")
+        .setAttribute("src", `${themeUserChoice.ringPicture}`);
     });
   });
-  //ALARM SETTING
-  alarmAudio = new Audio(`${themeUserChoice.ringSound}`);
-  document
-    .querySelector(".iconAlarm")
-    .setAttribute("src", `${themeUserChoice.ringPicture}`);
 }
 
 //STYLE AND CONTENT PRESET
-timerView.textContent = `${minutes} mn : ${secondes} s`;
-WorkSessionButtonDisplayFlex();
-WorkSessionButtonActiv();
-breakSessionButtonDisplayFlex();
-breakSessionButtonActiv();
-document.querySelector(".buttonsBar").style.display = "none";
-stopAlarmButton.style.display = "none";
+setTimeInTimerView(minutes, secondes);
+WorkSessionButtonAvailable();
+breakSessionButtonAvailable();
+stopAlarmButtonHidden();
+setTheme();
+
 //containerAlarm.style.display = "none";
 
 // FUNCTION INTERACTIVITY
@@ -140,119 +126,65 @@ function breakRainbowPink() {
   breakLimeGreenRainbow.style.background = "var(--shadowColor)";
 }*/
 
+/*****BUTTONSBAR*/
+function buttonsBarHidden() {
+  buttonsBar.classList.add("hidden");
+}
+
+function buttonsBarVisible() {
+  buttonsBar.classList.remove("hidden");
+}
+
 /******PLAYBUTTON*/
-function playButtonActiv() {
+function playButtonAvailable() {
   playButton.addEventListener("click", startSession);
-  playButton.style.cursor = "pointer";
-  backPlayButton.style.border = "solid 3px var(--secondaryColor)";
-  backPlayButton.style.background = "var(--primaryColor)";
+  playButton.classList.remove("disabled");
 }
 
-function playButtonInactiv() {
-  playButton.removeEventListener("click", startSession);
-  playButton.style.cursor = "none";
-  backPlayButton.style.border = "solid 1px var(--secondaryColor)";
-  backPlayButton.style.background = "var(--shadowColor)";
-}
-
-function playButtonDisplayBlock() {
-  playButton.style.display = "block";
-}
-
-function playButtonDisplayNone() {
-  playButton.style.display = "none";
+function playButtonDisabled() {
+  playButton.classList.add("disabled");
 }
 
 /******PAUSEBUTTON*/
-function pauseButtonActiv() {
-  pauseButton.addEventListener("click", pauseSession);
-  pauseButton.style.cursor = "pointer";
-  backPauseButton.style.border = "solid 3px var(--secondaryColor)";
-  backPauseButton.style.background = "var(--primaryColor)";
+function pauseButtonAvailable() {
+  pauseButton.addEventListener("click", pause);
+  pauseButton.classList.remove("disabled");
 }
 
-function pauseButtonInactiv() {
-  pauseButton.removeEventListener("click", pauseSession);
-  pauseButton.style.cursor = "none";
-  backPauseButton.style.border = "solid 1px var(--secondaryColor)";
-  backPauseButton.style.background = "var(--shadowColor)";
-}
-
-function pauseButtonDisplayBlock() {
-  pauseButton.style.display = "block";
-}
-
-function pauseButtonDisplayNone() {
-  pauseButton.style.display = "none";
+function pauseButtonDisabled() {
+  pauseButton.classList.add("disabled");
 }
 
 /******STOPBUTTON*/
-function stopButtonActiv() {
+function stopButtonAvailable() {
   stopButton.addEventListener("click", stop);
-  stopButton.style.cursor = "pointer";
-  backStopButton.style.border = "solid 3px var(--secondaryColor)";
-  backStopButton.style.background = "var(--primaryColor)";
+  stopButton.classList.remove("disabled");
 }
 
-function stopButtonInactiv() {
-  stopButton.removeEventListener("click", stop);
-  stopButton.style.cursor = "none";
-  backStopButton.style.border = "solid 1px var(--secondaryColor)";
-  backStopButton.style.background = "var(--shadowColor)";
-}
-
-function stopButtonDisplayBlock() {
-  stopButton.style.display = "block";
-}
-
-function stopButtonDisplayNone() {
-  stopButton.style.display = "none";
+function stopButtonDisabled() {
+  stopButton.classList.add("disabled");
 }
 
 /******WORKSESSIONBUTTON*/
-function WorkSessionButtonActiv() {
+function WorkSessionButtonAvailable() {
   WorkSessionButton.addEventListener("click", onclickNewWorkSession);
-  WorkSessionButton.style.cursor = "pointer";
-  WorkSessionButton.style.border = "solid 3px var(--secondaryColor)";
-  WorkSessionButton.style.background = "var(--primaryColor)";
+  WorkSessionButton.classList.remove("disabled");
+  WorkSessionButton.classList.remove("hidden");
 }
 
-function WorkSessionButtonInactiv() {
-  WorkSessionButton.removeEventListener("click", onclickNewWorkSession);
-  WorkSessionButton.style.cursor = "none";
-  WorkSessionButton.style.border = "solid 1px var(--secondaryColor)";
-  WorkSessionButton.style.background = "var(--shadowColor)";
-}
-
-function WorkSessionButtonDisplayFlex() {
-  WorkSessionButton.style.display = "flex";
-}
-
-function WorkSessionButtonDisplayNone() {
-  WorkSessionButton.style.display = "none";
+function WorkSessionButtonDisabled() {
+  WorkSessionButton.classList.add("disabled");
 }
 
 /******BREAKSESSIONBUTTON*/
-function breakSessionButtonActiv() {
+function breakSessionButtonAvailable() {
   breakSessionButton.addEventListener("click", onclickBreakCallButton);
-  breakSessionButton.style.cursor = "pointer";
-  breakSessionButton.style.border = "solid 3px var(--secondaryColor)";
-  breakSessionButton.style.background = "var(--primaryColor)";
+  breakSessionButton.classList.remove("disabled");
+  breakSessionButton.classList.remove("hidden");
 }
 
-function breakSessionButtonInactiv() {
-  breakSessionButton.removeEventListener("click", onclickBreakCallButton);
-  breakSessionButton.style.cursor = "none";
-  breakSessionButton.style.border = "solid 1px var(--secondaryColor)";
-  breakSessionButton.style.background = "var(--shadowColor)";
-}
-
-function breakSessionButtonDisplayFlex() {
-  breakSessionButton.style.display = "flex";
-}
-
-function breakSessionButtonDisplayNone() {
-  breakSessionButton.style.display = "none";
+function breakSessionButtonDisabled() {
+  breakSessionButton.classList.add("disabled");
 }
 
 /******ANIMATION ICON ALARM */
@@ -275,13 +207,22 @@ function ringAlarm() {
   alarmAudio.play();
 }
 
+function stopAlarmButtonHidden() {
+  stopAlarmButton.classList.add("hidden");
+}
+
+function stopAlarmButtonVisible() {
+  stopAlarmButton.addEventListener("click", stopAlarm);
+  stopAlarmButton.classList.remove("hidden");
+}
+
 function stopAlarm() {
   alarmAudio.pause();
-  document.querySelector(".workSession").style.display = "flex";
-  document.querySelector(".breakSession").style.display = "flex";
-  stopAlarmButton.style.display = "none";
+  alarmAudio.loop = false;
+  stopAlarmButtonHidden();
   timerView.textContent = `New session ?`;
-  breakSessionButtonActiv();
+  WorkSessionButtonAvailable();
+  breakSessionButtonAvailable();
   dontAnimateIconAlarm();
 }
 
@@ -297,37 +238,45 @@ function onclickNewWorkSession() {
   timeCalled = 25 * 60 * 1000;
   sessionTime = timeCalled;
   transformTimeAsADate(sessionTime);
-  timerView.textContent = `${minutes} mn : ${secondes} s`;
+  setTimeInTimerView(minutes, secondes);
   startSession();
-  document.querySelector(".buttonsBar").style.display = "flex";
-
-  WorkSessionButtonInactiv();
-  breakSessionButtonActiv();
-  playButtonInactiv();
-  pauseButtonActiv();
-  stopButtonActiv();
+  buttonsBarVisible();
+  WorkSessionButtonDisabled();
+  breakSessionButtonAvailable();
+  playButtonDisabled();
+  pauseButtonAvailable();
+  stopButtonAvailable();
 }
 
 function onclickBreakCallButton() {
   timeCalled = 5 * 1000;
   sessionTime = timeCalled;
   transformTimeAsADate(sessionTime);
-  timerView.textContent = `${minutes} mn : ${secondes} s`;
+  setTimeInTimerView(minutes, secondes);
   startSession();
-  document.querySelector(".buttonsBar").style.display = "flex";
-  breakSessionButtonInactiv();
-  WorkSessionButtonActiv();
-  playButtonInactiv();
-  pauseButtonActiv();
-  stopButtonActiv();
+  buttonsBarVisible();
+  breakSessionButtonDisabled();
+  WorkSessionButtonAvailable();
+  playButtonDisabled();
+  pauseButtonAvailable();
+  stopButtonAvailable();
+}
+
+function setTimeInTimerView(minutes, secondes) {
+  timerView.textContent = `${minutes} mn : ${
+    secondes == 0 ? "00" : secondes
+  } s`;
 }
 
 function startSession() {
+  document.body.classList.remove("pom-stop");
+  document.body.classList.remove("pom-pause");
+  document.body.classList.add("pom-play");
   clearInterval(interval);
   interval = setInterval(countDown, 1000);
-  playButtonInactiv();
-  pauseButtonActiv();
-  stopButtonActiv();
+  playButtonAvailable();
+  pauseButtonAvailable();
+  stopButtonAvailable();
 }
 
 function countDown() {
@@ -338,31 +287,35 @@ function countDown() {
   timerView.textContent = `${minutes} mn : ${secondes} s`;
   if (sessionTime < 0) {
     clearInterval(interval);
-    document.querySelector(".buttonsBar").style.display = "none";
+    buttonsBarHidden();
     timerView.textContent = `Time out`;
-    stopAlarmButton.style.display = "flex";
+    WorkSessionButton.classList.add("hidden");
+    breakSessionButton.classList.add("hidden");
     ringAlarm();
     animateIconAlarm();
-    stopAlarmButton.addEventListener("click", stopAlarm);
-    WorkSessionButtonDisplayNone();
-    breakSessionButtonDisplayNone();
+    stopAlarmButtonVisible();
   }
 }
 
 function stop() {
+  document.body.classList.remove("pom-play");
+  document.body.classList.remove("pom-pause");
+  document.body.classList.add("pom-stop");
   clearInterval(interval);
   sessionTime = timeCalled;
   transformTimeAsADate(sessionTime);
-  timerView.textContent = `${minutes} mn : ${secondes} s`;
-  stopButtonInactiv();
-  playButtonActiv();
-  pauseButtonInactiv();
+  setTimeInTimerView(minutes, secondes);
+  stopButtonDisabled();
+  playButtonAvailable();
+  pauseButtonDisabled();
 }
 
-function pauseSession() {
+function pause() {
+  document.body.classList.remove("pom-stop");
+  document.body.classList.remove("pom-play");
+  document.body.classList.add("pom-pause");
   clearInterval(interval);
-  pauseButtonInactiv();
-  playButtonActiv();
+  pauseButtonDisabled();
+  stopButtonDisabled();
+  playButtonAvailable();
 }
-
-themeUserSet();

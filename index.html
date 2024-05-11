@@ -11,7 +11,7 @@
     <div class="mainContainer">
       <svg class="circle1" height="30rem" width="30rem">
         <circle
-          class="circle1__Stroke"
+          class="circle1__Stroke animationInitial"
           stroke-width="1.5rem"
           stroke-linecap="round"
           r="12rem"
@@ -22,7 +22,7 @@
       </svg>
       <svg class="circle2" height="27rem" width="27rem">
         <circle
-          class="circle2__Stroke"
+          class="circle2__Stroke animationInitial"
           stroke-width="1.5rem"
           stroke-linecap="round"
           r="10.5rem"
@@ -33,7 +33,7 @@
       </svg>
       <svg class="circle3" height="24rem" width="24rem">
         <circle
-          class="circle3__Stroke"
+          class="circle3__Stroke animationInitial"
           stroke-width="1.5rem"
           stroke-linecap="round"
           r="9rem"
@@ -44,7 +44,7 @@
       </svg>
       <svg class="circle4" height="21rem" width="21rem">
         <circle
-          class="circle4__Stroke"
+          class="circle4__Stroke animationInitial"
           stroke-width="1.5rem"
           stroke-linecap="round"
           r="7.5rem"
@@ -55,7 +55,7 @@
       </svg>
       <svg class="circle5" height="18rem" width="18rem">
         <circle
-          class="circle5__Stroke"
+          class="circle5__Stroke animationInitial"
           stroke-width="1.5rem"
           stroke-linecap="round"
           r="6rem"
@@ -76,22 +76,26 @@
     <div class="assetsContainer">
       <div class="timerView"></div>
       <div class="possibilitiesContainer">
-        <div class="buttonsBar">
-          <div class="buttonPlay">
-            <div class="play cursor"></div>
-          </div>
-          <div class="buttonPause">
-            <div class="pause cursor"></div>
-          </div>
-          <div class="buttonStop">
-            <div class="stop cursor"></div>
-          </div>
+        <div class="buttonsBar hidden">
+          <button class="timerButtons buttonPlay">
+            <div class="play"></div>
+          </button>
+          <button class="timerButtons buttonPause">
+            <div class="pause"></div>
+          </button>
+          <button class="timerButtons buttonStop">
+            <div class="stop"></div>
+          </button>
         </div>
         <div class="choiceBar">
           <div class="choiceSession">
-            <button class="workSession cursor choice">Work session</button>
-            <button class="stopAlarmButton cursor">Stop Alarm</button>
-            <button class="breakSession cursor choice">New break</button>
+            <button class="choiceSessionButtons workSession">
+              Work session
+            </button>
+            <button class="choiceSessionButtons stopAlarmButton">
+              Stop Alarm
+            </button>
+            <button class="choiceSessionButtons breakSession">New break</button>
           </div>
           <div class="theme">
             <button

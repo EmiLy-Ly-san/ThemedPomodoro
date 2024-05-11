@@ -139,14 +139,18 @@ body.themeColors-animalCrossingColors .iconStarWars,
   bottom: 6rem;
 }
 
+.animationInitial {
+  animation: load 4s ease-in;
+  animation-fill-mode: forwards;
+}
+
 .circle1__Stroke {
   stroke: var(--circle1);
   stroke-dasharray: calc(12rem * 2 * PI) calc(12rem * 2 * PI); /*circomference*/
   stroke-dashoffset: calc(12rem * 2 * PI); /*cache donc tout le dasharray*/
   transform: rotate(-180deg);
   transform-origin: 50% 50%;
-  animation: load 4s ease-in;
-  animation-fill-mode: forwards;
+  transition: stroke-dashoffset 2s;
 }
 
 .circle2__Stroke {
@@ -155,9 +159,9 @@ body.themeColors-animalCrossingColors .iconStarWars,
   stroke-dashoffset: calc(10.5rem * 2 * PI); /*cache donc tout le dasharray*/
   transform: rotate(-180deg);
   transform-origin: 50% 50%;
-  animation: load 4s ease-in;
+
   animation-delay: 0.4s;
-  animation-fill-mode: forwards;
+  transition: stroke-dashoffset 2s;
 }
 
 .circle3__Stroke {
@@ -166,9 +170,8 @@ body.themeColors-animalCrossingColors .iconStarWars,
   stroke-dashoffset: calc(9rem * 2 * PI); /*cache donc tout le dasharray*/
   transform: rotate(-180deg);
   transform-origin: 50% 50%;
-  animation: load 4s ease-in;
   animation-delay: 0.8s;
-  animation-fill-mode: forwards;
+  transition: stroke-dashoffset 2s;
 }
 
 .circle4__Stroke {
@@ -177,9 +180,8 @@ body.themeColors-animalCrossingColors .iconStarWars,
   stroke-dashoffset: calc(7.5rem * 2 * PI); /*cache donc tout le dasharray*/
   transform: rotate(-180deg);
   transform-origin: 50% 50%;
-  animation: load 4s ease-in;
   animation-delay: 1.2s;
-  animation-fill-mode: forwards;
+  transition: stroke-dashoffset 2s;
 }
 
 .circle5__Stroke {
@@ -188,9 +190,8 @@ body.themeColors-animalCrossingColors .iconStarWars,
   stroke-dashoffset: calc(6rem * 2 * PI); /*cache donc tout le dasharray*/
   transform: rotate(-180deg);
   transform-origin: 50% 50%;
-  animation: load 4s ease-in;
   animation-delay: 1.6s;
-  animation-fill-mode: forwards;
+  transition: stroke-dashoffset 2s;
 }
 
 @keyframes load {
@@ -275,11 +276,7 @@ body.themeColors-animalCrossingColors .iconStarWars,
   gap: 1rem;
 }
 
-.cursor {
-  cursor: pointer;
-}
-
-.buttonPlay {
+.timerButtons {
   border: solid 3px var(--secondaryColor);
   border-radius: 50%;
   width: 2.5rem;
@@ -287,52 +284,35 @@ body.themeColors-animalCrossingColors .iconStarWars,
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.buttonPlay:active {
-  border: solid 3px var(--secondaryColor);
+  cursor: pointer;
+  background: var(--primaryColor);
 }
 
 .play {
-  width: 0;
-  height: 0;
-  border-bottom: 15px solid transparent;
-  border-top: 15px solid transparent;
-  border-left: 15px solid var(--secondaryColor);
+  border-bottom: 10px solid transparent;
+  border-top: 10px solid transparent;
+  border-left: 12px solid var(--secondaryColor);
+}
+
+body.pom-play .buttonPlay {
+  border: solid 1px var(--secondaryColor);
+  background: var(--shadowColor);
+  cursor: not-allowed;
 }
 
 .pause {
-  width: 7px;
-  height: 20px;
+  width: 12px;
+  height: 15px;
   border-right: solid 3px var(--secondaryColor);
   border-left: solid 3px var(--secondaryColor);
   position: relative;
 }
 
-.buttonPause {
-  border: solid 3px var(--secondaryColor);
-  border-radius: 50%;
-  width: 2.5rem;
-  height: 2.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .stop {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   background: var(--secondaryColor);
   position: relative;
-}
-
-.buttonStop {
-  border-radius: 50%;
-  width: 2.5rem;
-  height: 2.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .choiceSession {
@@ -341,20 +321,32 @@ body.themeColors-animalCrossingColors .iconStarWars,
   gap: 2rem;
 }
 
+.choiceSessionButtons {
+  border-radius: 40px;
+  padding: 0.5rem;
+  font-family: sans-serif;
+  color: var(--secondaryColor);
+  border: solid 3px var(--secondaryColor);
+  background: var(--primaryColor);
+  cursor: pointer;
+}
+
+.disabled {
+  cursor: not-allowed;
+  border: "solid 1px var(--secondaryColor)";
+  background: var(--shadowColor);
+}
+
+.hidden {
+  display: none;
+}
+
 .stopAlarmButton {
   border-radius: 40px;
   border: solid 3px var(--secondaryColor);
   color: var(--secondaryColor);
   font-family: sans-serif;
   padding: 0.5rem;
-  background: none;
-}
-
-.choice {
-  border-radius: 40px;
-  padding: 0.5rem;
-  font-family: sans-serif;
-  color: var(--secondaryColor);
   background: none;
 }
 
