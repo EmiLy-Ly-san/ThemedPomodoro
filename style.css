@@ -140,7 +140,7 @@ body.themeColors-animalCrossingColors .iconStarWars,
 }
 
 .animationInitial {
-  animation: load 4s ease-in;
+  animation: load 2s ease-in;
   animation-fill-mode: forwards;
 }
 
