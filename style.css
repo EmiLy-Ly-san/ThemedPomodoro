@@ -140,8 +140,18 @@ body.themeColors-animalCrossingColors .iconStarWars,
 }
 
 .animationInitial {
-  animation: load 4s ease-in;
+  animation: load 2s ease-in;
   animation-fill-mode: forwards;
+}
+
+.animationTimer {
+  animation: load 0s ease-in;
+  animation-fill-mode: forwards;
+}
+.pom-stop .animationTimer,
+.pom-stop .animationInitial {
+  animation: none;
+  stroke-dashoffset: 0;
 }
 
 .circle1__Stroke {
@@ -150,7 +160,6 @@ body.themeColors-animalCrossingColors .iconStarWars,
   stroke-dashoffset: calc(12rem * 2 * PI); /*cache donc tout le dasharray*/
   transform: rotate(-180deg);
   transform-origin: 50% 50%;
-  transition: stroke-dashoffset 2s;
 }
 
 .circle2__Stroke {
@@ -161,7 +170,6 @@ body.themeColors-animalCrossingColors .iconStarWars,
   transform-origin: 50% 50%;
 
   animation-delay: 0.4s;
-  transition: stroke-dashoffset 2s;
 }
 
 .circle3__Stroke {
@@ -171,7 +179,6 @@ body.themeColors-animalCrossingColors .iconStarWars,
   transform: rotate(-180deg);
   transform-origin: 50% 50%;
   animation-delay: 0.8s;
-  transition: stroke-dashoffset 2s;
 }
 
 .circle4__Stroke {
@@ -181,7 +188,6 @@ body.themeColors-animalCrossingColors .iconStarWars,
   transform: rotate(-180deg);
   transform-origin: 50% 50%;
   animation-delay: 1.2s;
-  transition: stroke-dashoffset 2s;
 }
 
 .circle5__Stroke {
@@ -191,7 +197,6 @@ body.themeColors-animalCrossingColors .iconStarWars,
   transform: rotate(-180deg);
   transform-origin: 50% 50%;
   animation-delay: 1.6s;
-  transition: stroke-dashoffset 2s;
 }
 
 @keyframes load {

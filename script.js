@@ -1,4 +1,4 @@
-//VARIABLES
+//*****VARIABLES
 let timerView = document.querySelector(".timerView");
 //Buttons
 let buttonsBar = document.querySelector(".buttonsBar");
@@ -29,7 +29,7 @@ let interval;
 let alarmAudio = new Audio("alarms/Voicy_Star Wars Main Theme (Full).mp3");
 let stopAlarmButton = document.querySelector(".stopAlarmButton");
 
-//THEMES//
+//*****THEMES//
 class Theme {
   constructor(themeConfig) {
     this.ringSound = themeConfig.ringSound;
@@ -83,12 +83,48 @@ function setTheme() {
   });
 }
 
+//*****ANIMATION CIRCLES */
+const circlesStroke = document.querySelectorAll(".circleStroke");
+
+function stopAnimationInitial() {
+  [...circlesStroke].forEach(function (circleStroke) {
+    circleStroke.classList.remove("animationInitial");
+  });
+}
+function lauchAnimationInitial() {
+  [...circlesStroke].forEach(function (circleStroke) {
+    circleStroke.classList.add("animationInitial");
+  });
+}
+function launchAnimationTimer() {
+  [...circlesStroke].forEach(function (circleStroke) {
+    circleStroke.classList.add("animationTimer");
+    circleStroke.style.animationDuration = `${timeCalled}ms`;
+    circleStroke.style.animationPlayState = "running";
+  });
+}
+
+function pauseAnimationTimer() {
+  [...circlesStroke].forEach(function (circleStroke) {
+    circleStroke.style.animationPlayState = "paused";
+  });
+}
+
+function stopAnimationTimer() {
+  [...circlesStroke].forEach(function (circleStroke) {
+    circleStroke.classList.remove("animationTimer");
+  });
+}
+
 //STYLE AND CONTENT PRESET
 setTimeInTimerView(minutes, secondes);
 WorkSessionButtonAvailable();
 breakSessionButtonAvailable();
 stopAlarmButtonHidden();
 setTheme();
+playButton.addEventListener("click", play);
+pauseButton.addEventListener("click", pause);
+stopButton.addEventListener("click", stop);
 
 //containerAlarm.style.display = "none";
 
@@ -137,7 +173,6 @@ function buttonsBarVisible() {
 
 /******PLAYBUTTON*/
 function playButtonAvailable() {
-  playButton.addEventListener("click", startSession);
   playButton.removeAttribute("disabled");
 }
 
@@ -147,7 +182,6 @@ function playButtonDisabled() {
 
 /******PAUSEBUTTON*/
 function pauseButtonAvailable() {
-  pauseButton.addEventListener("click", pause);
   pauseButton.removeAttribute("disabled");
 }
 
@@ -157,7 +191,6 @@ function pauseButtonDisabled() {
 
 /******STOPBUTTON*/
 function stopButtonAvailable() {
-  stopButton.addEventListener("click", stop);
   stopButton.removeAttribute("disabled");
 }
 
@@ -240,27 +273,33 @@ function onclickNewWorkSession() {
   sessionTime = timeCalled;
   transformTimeAsADate(sessionTime);
   setTimeInTimerView(minutes, secondes);
-  startSession();
+  document.body.classList.add("pom-stop");
+  document.body.classList.remove("pom-pause");
+  document.body.classList.remove("pom-play");
   buttonsBarVisible();
   WorkSessionButtonDisabled();
   breakSessionButtonAvailable();
-  playButtonDisabled();
+  playButtonAvailable();
   pauseButtonAvailable();
   stopButtonAvailable();
 }
 
 function onclickBreakCallButton() {
-  timeCalled = 5 * 1000;
+  timeCalled = 60 * 1000;
   sessionTime = timeCalled;
   transformTimeAsADate(sessionTime);
   setTimeInTimerView(minutes, secondes);
-  startSession();
+  document.body.classList.add("pom-stop");
+  document.body.classList.remove("pom-pause");
+  document.body.classList.remove("pom-play");
   buttonsBarVisible();
   breakSessionButtonDisabled();
   WorkSessionButtonAvailable();
-  playButtonDisabled();
+  playButtonAvailable();
   pauseButtonAvailable();
   stopButtonAvailable();
+  stopAnimationInitial();
+  launchAnimationTimer();
 }
 
 function setTimeInTimerView(minutes, secondes) {
@@ -287,7 +326,8 @@ function countDown() {
   }
 }
 
-function startSession() {
+function play() {
+  console.log(timeCalled);
   document.body.classList.remove("pom-stop");
   document.body.classList.remove("pom-pause");
   document.body.classList.add("pom-play");
@@ -296,6 +336,8 @@ function startSession() {
   playButtonDisabled();
   pauseButtonAvailable();
   stopButtonAvailable();
+  stopAnimationInitial();
+  launchAnimationTimer();
 }
 
 function stop() {
@@ -309,6 +351,8 @@ function stop() {
   stopButtonDisabled();
   playButtonAvailable();
   pauseButtonDisabled();
+  stopAnimationTimer();
+  lauchAnimationInitial();
 }
 
 function pause() {
@@ -319,4 +363,5 @@ function pause() {
   pauseButtonDisabled();
   // stopButtonDisabled();
   playButtonAvailable();
+  pauseAnimationTimer();
 }
