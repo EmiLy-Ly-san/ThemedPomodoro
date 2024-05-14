@@ -282,7 +282,7 @@ function stopAlarm() {
 }
 
 //STYLE AND CONTENT PRESET
-function displayDefaultPage {
+function displayDefaultPage() {
   setTimeInTimerView(minutes, secondes);
   WorkSessionButtonAvailable();
   breakSessionButtonAvailable();
