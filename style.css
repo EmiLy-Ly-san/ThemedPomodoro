@@ -139,21 +139,6 @@ body.themeColors-animalCrossingColors .iconStarWars,
   bottom: 6rem;
 }
 
-.animationInitial {
-  animation: load 2s ease-in;
-  animation-fill-mode: forwards;
-}
-
-.animationTimer {
-  animation: load 0s ease-in;
-  animation-fill-mode: forwards;
-}
-.pom-stop .animationTimer,
-.pom-stop .animationInitial {
-  animation: none;
-  stroke-dashoffset: 0;
-}
-
 .circle1__Stroke {
   stroke: var(--circle1);
   stroke-dasharray: calc(12rem * 2 * PI) calc(12rem * 2 * PI); /*circomference*/
@@ -199,12 +184,29 @@ body.themeColors-animalCrossingColors .iconStarWars,
   animation-delay: 1.6s;
 }
 
+/*ANIMATIONS CIRCLE*/
+.animationInitial {
+  animation: load 2s ease-in;
+  animation-fill-mode: forwards;
+}
+
+.animationTimer {
+  animation: load 0s ease-in;
+  animation-fill-mode: forwards;
+}
+.pom-stop .animationTimer,
+.pom-stop .animationInitial {
+  animation: none;
+  stroke-dashoffset: 0;
+}
+
 @keyframes load {
   100% {
     stroke-dashoffset: 0;
   }
 }
 
+/*ALARM*/
 .containerAlarm {
   width: 50px;
   height: 50px;
@@ -340,6 +342,7 @@ button:disabled {
   display: none;
 }
 
+/*STOP ALARM BUTTON*/
 .stopAlarmButton {
   border-radius: 40px;
   border: solid 3px var(--secondaryColor);
@@ -349,6 +352,7 @@ button:disabled {
   background: none;
 }
 
+/*THEME CHOICE*/
 .theme {
   position: relative;
   top: 0px;
