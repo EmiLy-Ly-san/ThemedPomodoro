@@ -1,35 +1,8 @@
-//*****VARIABLES
-let timerView = document.querySelector(".timerView");
-//Buttons
-let buttonsBar = document.querySelector(".buttonsBar");
-let playButton = document.querySelector(".buttonPlay");
-let stopButton = document.querySelector(".buttonStop");
-let pauseButton = document.querySelector(".buttonPause");
-let breakSessionButton = document.querySelector(".breakSession");
-let WorkSessionButton = document.querySelector(".workSession");
-/*//workRainbow
-let workLimeRainbow = document.querySelector(".lime");
-let workPeachRainbow = document.querySelector(".peach");
-let workCorailRainbow = document.querySelector(".corail");
-let workRoseRainbow = document.querySelector(".rose");
-let workPurpleRainbow = document.querySelector(".purple");
-//breakRainbow
-let breakRainbow = document.querySelector(".breakRainbow");
-let breakBlueRainbow = document.querySelector(".blue");
-let breakSkyBlueRainbow = document.querySelector(".skyBlue");
-let breakLightBlueRainbow = document.querySelector(".lightBlue");
-let breakGreenRainbow = document.querySelector(".green");
-let breakLimeGreenRainbow = document.querySelector(".limeGreen");*/
-let sessionTime;
-let timeCalled;
-let minutes = 25;
-let secondes = "00";
-let interval;
-
-let alarmAudio = new Audio("alarms/Voicy_Star Wars Main Theme (Full).mp3");
-let stopAlarmButton = document.querySelector(".stopAlarmButton");
-
 //*****THEMES//
+let alarmAudio = new Audio("alarms/Voicy_Star Wars Main Theme (Full).mp3");
+let themeButtons = document.querySelectorAll("button[data-themeColors]");
+let themeUserChoice;
+
 class Theme {
   constructor(themeConfig) {
     this.ringSound = themeConfig.ringSound;
@@ -58,12 +31,8 @@ const themeCollection = {
   animalCrossing: new Theme(animalCrossingConfig),
 };
 
-let themeButtons = document.querySelectorAll("button[data-themeColors]");
-let themeUserChoice;
-
 function setTheme() {
   //GENERALS COLORS
-
   [...themeButtons].forEach(function (themeButton) {
     themeButton.addEventListener("click", () => {
       themeUserChoice = themeCollection[themeButton.id];
@@ -73,7 +42,6 @@ function setTheme() {
       const newBodyThemeClassName = `themeColors-${currentButtonThemeColors}`;
       document.body.classList = ""; //NEED TO LEARN REGEXP TO FIX IT BETTER
       document.body.classList.add(newBodyThemeClassName);
-
       //ALARM SETTING
       alarmAudio = new Audio(`${themeUserChoice.ringSound}`);
       document
@@ -116,89 +84,11 @@ function stopAnimationTimer() {
   });
 }
 
-//STYLE AND CONTENT PRESET
-setTimeInTimerView(minutes, secondes);
-WorkSessionButtonAvailable();
-breakSessionButtonAvailable();
-stopAlarmButtonHidden();
-setTheme();
-playButton.addEventListener("click", play);
-pauseButton.addEventListener("click", pause);
-stopButton.addEventListener("click", stop);
+//*****WORKSESSION AND NEW BREAK */
+let breakSessionButton = document.querySelector(".breakSession");
+let WorkSessionButton = document.querySelector(".workSession");
 
-//containerAlarm.style.display = "none";
-
-// FUNCTION INTERACTIVITY
-/******RAINBOWS*/
-/*function workRainbowInitalColor() {
-  workLimeRainbow.style.background = "#FBF8CC";
-  workPeachRainbow.style.background = "#FDE4CF";
-  workCorailRainbow.style.background = "#FFCFD2";
-  workRoseRainbow.style.background = "#F1C0E8";
-  workPurpleRainbow.style.background = "#CFBAF0";
-}
-
-function workRainbowPink() {
-  workLimeRainbow.style.background = "var(--shadowColor)";
-  workPeachRainbow.style.background = "var(--shadowColor)";
-  workCorailRainbow.style.background = "var(--shadowColor)";
-  workRoseRainbow.style.background = "var(--shadowColor)";
-  workPurpleRainbow.style.background = "var(--shadowColor)";
-}
-
-function breakRainbowInitialColor() {
-  breakBlueRainbow.style.background = "#A3C4F3";
-  breakSkyBlueRainbow.style.background = "#90DBF4";
-  breakLightBlueRainbow.style.background = "#8EECF5";
-  breakGreenRainbow.style.background = "#98F5E1";
-  breakLimeGreenRainbow.style.background = "#B9FBC0";
-}
-
-function breakRainbowPink() {
-  breakBlueRainbow.style.background = "var(--shadowColor)";
-  breakSkyBlueRainbow.style.background = "var(--shadowColor)";
-  breakLightBlueRainbow.style.background = "var(--shadowColor)";
-  breakGreenRainbow.style.background = "var(--shadowColor)";
-  breakLimeGreenRainbow.style.background = "var(--shadowColor)";
-}*/
-
-/*****BUTTONSBAR*/
-function buttonsBarHidden() {
-  buttonsBar.classList.add("hidden");
-}
-
-function buttonsBarVisible() {
-  buttonsBar.classList.remove("hidden");
-}
-
-/******PLAYBUTTON*/
-function playButtonAvailable() {
-  playButton.removeAttribute("disabled");
-}
-
-function playButtonDisabled() {
-  playButton.setAttribute("disabled", "true");
-}
-
-/******PAUSEBUTTON*/
-function pauseButtonAvailable() {
-  pauseButton.removeAttribute("disabled");
-}
-
-function pauseButtonDisabled() {
-  pauseButton.setAttribute("disabled", "true");
-}
-
-/******STOPBUTTON*/
-function stopButtonAvailable() {
-  stopButton.removeAttribute("disabled");
-}
-
-function stopButtonDisabled() {
-  stopButton.setAttribute("disabled", "true");
-}
-
-/******WORKSESSIONBUTTON*/
+//WORKSESSIONBUTTON*/
 function WorkSessionButtonAvailable() {
   WorkSessionButton.addEventListener("click", function () {
     timeCalled = 30 * 1000;
@@ -209,7 +99,7 @@ function WorkSessionButtonAvailable() {
   });
 }
 
-/******BREAKSESSIONBUTTON*/
+//BREAKSESSIONBUTTON*/
 function breakSessionButtonAvailable() {
   breakSessionButton.addEventListener("click", function () {
     timeCalled = 30 * 1000;
@@ -220,56 +110,14 @@ function breakSessionButtonAvailable() {
   });
 }
 
-/******ANIMATION ICON ALARM */
-const iconAlarm = document.querySelector(".iconAlarm");
-const containerAlarm = document.querySelector(".containerAlarm");
-
-function animateIconAlarm() {
-  iconAlarm.classList.add("animationRotation");
-  containerAlarm.classList.add("doubleBorder");
-}
-
-function dontAnimateIconAlarm() {
-  iconAlarm.classList.remove("animationRotation");
-  containerAlarm.classList.remove("doubleBorder");
-}
-
-/******AUDIO ALARM*/
-function ringAlarm() {
-  alarmAudio.loop = true;
-  alarmAudio.play();
-}
-
-function stopAlarmButtonHidden() {
-  stopAlarmButton.classList.add("hidden");
-}
-
-function stopAlarmButtonVisible() {
-  stopAlarmButton.addEventListener("click", stopAlarm);
-  stopAlarmButton.classList.remove("hidden");
-}
-
-function stopAlarm() {
-  alarmAudio.pause();
-  alarmAudio.loop = false;
-  alarmAudio.currentTime = 0;
-  stopAlarmButtonHidden();
-  timerView.textContent = `New session ?`;
-  WorkSessionButton.classList.remove("hidden");
-  WorkSessionButton.removeAttribute("disabled");
-  breakSessionButton.classList.remove("hidden");
-  breakSessionButton.removeAttribute("disabled");
-  breakSessionButtonAvailable();
-  dontAnimateIconAlarm();
-}
-
-////FUNCTIONS GENERAL
-
-function transformTimeAsADate(sessionTime) {
-  timeAsADate = new Date(sessionTime);
-  minutes = timeAsADate.getMinutes();
-  secondes = timeAsADate.getSeconds();
-}
+/*****TIMER*/
+//TIMER GENERAL FUNCTION*/
+let timerView = document.querySelector(".timerView");
+let sessionTime;
+let timeCalled;
+let minutes = 25;
+let secondes = "00";
+let interval;
 
 function setSession() {
   sessionTime = timeCalled;
@@ -284,6 +132,12 @@ function setSession() {
   pauseButtonAvailable();
   stopButtonAvailable();
   launchAnimationTimer();
+}
+
+function transformTimeAsADate(sessionTime) {
+  timeAsADate = new Date(sessionTime);
+  minutes = timeAsADate.getMinutes();
+  secondes = timeAsADate.getSeconds();
 }
 
 function setTimeInTimerView(minutes, secondes) {
@@ -310,6 +164,44 @@ function countDown() {
   }
 }
 
+//BUTTONSBAR PLAY PAUSE STOP TIMER*/
+let buttonsBar = document.querySelector(".buttonsBar");
+let playButton = document.querySelector(".buttonPlay");
+let stopButton = document.querySelector(".buttonStop");
+let pauseButton = document.querySelector(".buttonPause");
+
+function buttonsBarHidden() {
+  buttonsBar.classList.add("hidden");
+}
+function buttonsBarVisible() {
+  buttonsBar.classList.remove("hidden");
+}
+
+//PLAYBUTTON*/
+function playButtonAvailable() {
+  playButton.removeAttribute("disabled");
+}
+function playButtonDisabled() {
+  playButton.setAttribute("disabled", "true");
+}
+
+//PAUSEBUTTON*/
+function pauseButtonAvailable() {
+  pauseButton.removeAttribute("disabled");
+}
+function pauseButtonDisabled() {
+  pauseButton.setAttribute("disabled", "true");
+}
+
+//STOPBUTTON*/
+function stopButtonAvailable() {
+  stopButton.removeAttribute("disabled");
+}
+function stopButtonDisabled() {
+  stopButton.setAttribute("disabled", "true");
+}
+
+//RUN PLAY PAUSE OR STOP*/
 function play() {
   console.log(timeCalled);
   document.body.classList.remove("pom-stop");
@@ -323,7 +215,15 @@ function play() {
   stopAnimationInitial();
   launchAnimationTimer();
 }
-
+function pause() {
+  document.body.classList.remove("pom-stop");
+  document.body.classList.remove("pom-play");
+  document.body.classList.add("pom-pause");
+  clearInterval(interval);
+  pauseButtonDisabled();
+  playButtonAvailable();
+  pauseAnimationTimer();
+}
 function stop() {
   document.body.classList.remove("pom-play");
   document.body.classList.remove("pom-pause");
@@ -339,12 +239,57 @@ function stop() {
   lauchAnimationInitial();
 }
 
-function pause() {
-  document.body.classList.remove("pom-stop");
-  document.body.classList.remove("pom-play");
-  document.body.classList.add("pom-pause");
-  clearInterval(interval);
-  pauseButtonDisabled();
-  playButtonAvailable();
-  pauseAnimationTimer();
+/*****ALARM */
+//ANIMATION ICON ALARM */
+const iconAlarm = document.querySelector(".iconAlarm");
+const containerAlarm = document.querySelector(".containerAlarm");
+
+function animateIconAlarm() {
+  iconAlarm.classList.add("animationRotation");
+  containerAlarm.classList.add("doubleBorder");
 }
+function dontAnimateIconAlarm() {
+  iconAlarm.classList.remove("animationRotation");
+  containerAlarm.classList.remove("doubleBorder");
+}
+
+//AUDIO ALARM*/
+const stopAlarmButton = document.querySelector(".stopAlarmButton");
+
+function ringAlarm() {
+  alarmAudio.loop = true;
+  alarmAudio.play();
+}
+function stopAlarmButtonHidden() {
+  stopAlarmButton.classList.add("hidden");
+}
+function stopAlarmButtonVisible() {
+  stopAlarmButton.addEventListener("click", stopAlarm);
+  stopAlarmButton.classList.remove("hidden");
+}
+function stopAlarm() {
+  alarmAudio.pause();
+  alarmAudio.loop = false;
+  alarmAudio.currentTime = 0;
+  stopAlarmButtonHidden();
+  timerView.textContent = `New session ?`;
+  WorkSessionButton.classList.remove("hidden");
+  WorkSessionButton.removeAttribute("disabled");
+  breakSessionButton.classList.remove("hidden");
+  breakSessionButton.removeAttribute("disabled");
+  breakSessionButtonAvailable();
+  dontAnimateIconAlarm();
+}
+
+//STYLE AND CONTENT PRESET
+function displayDefaultPage {
+  setTimeInTimerView(minutes, secondes);
+  WorkSessionButtonAvailable();
+  breakSessionButtonAvailable();
+  setTheme();
+  playButton.addEventListener("click", play);
+  pauseButton.addEventListener("click", pause);
+  stopButton.addEventListener("click", stop);
+}
+
+displayDefaultPage();
