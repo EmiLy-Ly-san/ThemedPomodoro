@@ -59,61 +59,21 @@ body.themeColors-animalCrossingColors {
   --circle5: #cfbaf0;
 }
 
-body.themeColors-starWarsColors .iconStarWars {
-  transform: scale(1.3);
-  background: var(--circle5);
-  border-radius: 2.5rem;
-}
-
-body.themeColors-starWarsColors .iconAnimalCrossing,
-.iconStrangerThings {
-  filter: grayScale(70%);
-  background: var(--shadowSecondaryColor);
-  border-radius: 2.5rem;
-}
-
-body.themeColors-strangerThingsColors .iconStrangerThings {
-  transform: scale(1.3);
-  background: var(--circle5);
-  border-radius: 2.5rem;
-}
-
-body.themeColors-strangerThingsColors .iconAnimalCrossing,
-.iconStarWars {
-  filter: grayScale(70%);
-  background: var(--shadowSecondaryColor);
-  border-radius: 2.5rem;
-}
-
-body.themeColors-animalCrossingColors .iconAnimalCrossing {
-  transform: scale(1.3);
-  background: var(--circle5);
-  border-radius: 2.5rem;
-}
-
-body.themeColors-animalCrossingColors .iconStarWars,
-.iconStrangerThings {
-  filter: grayScale(70%);
-  background: var(--shadowSecondaryColor);
-  border-radius: 2.5rem;
-}
-
 /*CIRCLES + RING*/
 .mainContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 30%;
 }
 
-.rainbowContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.circle1,
+.circle2,
+.circle3,
+.circle4,
+.circle5 {
+  margin-top: -1.563rem;
 }
-
 .circle1 {
   position: absolute;
   top: 0;
@@ -121,6 +81,7 @@ body.themeColors-animalCrossingColors .iconStarWars,
 .circle2 {
   position: absolute;
   top: 1.5rem;
+  margin-top: -25px;
 }
 
 .circle3 {
@@ -218,7 +179,7 @@ body.themeColors-animalCrossingColors .iconStarWars,
   background: var(--secondaryColor);
   border: none;
   position: absolute;
-  top: 13.5rem;
+  top: 12rem;
   cursor: pointer;
 }
 
@@ -254,7 +215,12 @@ body.themeColors-animalCrossingColors .iconStarWars,
 
 /*TIMER + CHOICES*/
 .assetsContainer {
-  margin-top: 28rem;
+  margin-top: 27rem;
+}
+
+.possibilitiesContainer {
+  display: flex;
+  flex-direction: column;
 }
 .timerView {
   font-family: sans-serif;
@@ -271,7 +237,6 @@ body.themeColors-animalCrossingColors .iconStarWars,
   height: 3.5rem;
   border: solid 0.188rem var(--secondaryColor);
   border-radius: 2.5rem;
-  margin-top: 0.5rem;
 }
 
 .choiceBar {
@@ -358,18 +323,53 @@ button:disabled {
   top: 0px;
   left: 0px;
   display: flex;
-  justify-content: space-between;
   gap: 2rem;
   width: 100%;
   background: var(--primaryColor);
   border-radius: 2.5rem;
-  padding: 1rem;
-  box-shadow: inset 0 0 0 0.188rem var(--secondaryColor),
-    inset 0 0 0 0.375rem var(--primaryColor);
 }
 
 .choiceTheme {
   border: none;
   background: none;
   padding: 0.5rem;
+}
+
+body.themeColors-starWarsColors .iconStarWars {
+  transform: scale(1.3);
+  background: var(--circle5);
+  border-radius: 2.5rem;
+}
+
+body.themeColors-starWarsColors .iconAnimalCrossing,
+body.themeColors-starWarsColors .iconStrangerThings {
+  filter: grayScale(100%);
+  background: var(--shadowSecondaryColor);
+  border-radius: 2.5rem;
+}
+
+body.themeColors-strangerThingsColors .iconStrangerThings {
+  transform: scale(1.3);
+  background: var(--circle5);
+  border-radius: 2.5rem;
+}
+
+body.themeColors-strangerThingsColors .iconAnimalCrossing,
+body.themeColors-strangerThingsColors .iconStarWars {
+  filter: grayScale(100%);
+  background: var(--shadowSecondaryColor);
+  border-radius: 2.5rem;
+}
+
+body.themeColors-animalCrossingColors .iconAnimalCrossing {
+  transform: scale(1.3);
+  background: var(--circle5);
+  border-radius: 2.5rem;
+}
+
+body.themeColors-animalCrossingColors .iconStarWars,
+body.themeColors-animalCrossingColors .iconStrangerThings {
+  filter: grayScale(70%);
+  background: var(--shadowSecondaryColor);
+  border-radius: 2.5rem;
 }
