@@ -200,24 +200,24 @@ function stopButtonDisabled() {
 
 /******WORKSESSIONBUTTON*/
 function WorkSessionButtonAvailable() {
-  WorkSessionButton.addEventListener("click", onclickNewWorkSession);
-  WorkSessionButton.removeAttribute("disabled");
-  WorkSessionButton.classList.remove("hidden");
-}
-
-function WorkSessionButtonDisabled() {
-  WorkSessionButton.setAttribute("disabled", "true");
+  WorkSessionButton.addEventListener("click", function () {
+    timeCalled = 30 * 1000;
+    setSession();
+    WorkSessionButton.removeAttribute("disabled");
+    WorkSessionButton.classList.remove("hidden");
+    breakSessionButton.setAttribute("disabled", "true");
+  });
 }
 
 /******BREAKSESSIONBUTTON*/
 function breakSessionButtonAvailable() {
-  breakSessionButton.addEventListener("click", onclickBreakCallButton);
-  breakSessionButton.removeAttribute("disabled");
-  breakSessionButton.classList.remove("hidden");
-}
-
-function breakSessionButtonDisabled() {
-  breakSessionButton.setAttribute("disabled", "true");
+  breakSessionButton.addEventListener("click", function () {
+    timeCalled = 30 * 1000;
+    setSession();
+    breakSessionButton.removeAttribute("disabled");
+    breakSessionButton.classList.remove("hidden");
+    WorkSessionButton.setAttribute("disabled", "true");
+  });
 }
 
 /******ANIMATION ICON ALARM */
@@ -255,7 +255,10 @@ function stopAlarm() {
   alarmAudio.currentTime = 0;
   stopAlarmButtonHidden();
   timerView.textContent = `New session ?`;
-  WorkSessionButtonAvailable();
+  WorkSessionButton.classList.remove("hidden");
+  WorkSessionButton.removeAttribute("disabled");
+  breakSessionButton.classList.remove("hidden");
+  breakSessionButton.removeAttribute("disabled");
   breakSessionButtonAvailable();
   dontAnimateIconAlarm();
 }
@@ -268,8 +271,7 @@ function transformTimeAsADate(sessionTime) {
   secondes = timeAsADate.getSeconds();
 }
 
-function onclickNewWorkSession() {
-  timeCalled = 25 * 60 * 1000;
+function setSession() {
   sessionTime = timeCalled;
   transformTimeAsADate(sessionTime);
   setTimeInTimerView(minutes, secondes);
@@ -277,28 +279,10 @@ function onclickNewWorkSession() {
   document.body.classList.remove("pom-pause");
   document.body.classList.remove("pom-play");
   buttonsBarVisible();
-  WorkSessionButtonDisabled();
   breakSessionButtonAvailable();
   playButtonAvailable();
   pauseButtonAvailable();
   stopButtonAvailable();
-}
-
-function onclickBreakCallButton() {
-  timeCalled = 60 * 1000;
-  sessionTime = timeCalled;
-  transformTimeAsADate(sessionTime);
-  setTimeInTimerView(minutes, secondes);
-  document.body.classList.add("pom-stop");
-  document.body.classList.remove("pom-pause");
-  document.body.classList.remove("pom-play");
-  buttonsBarVisible();
-  breakSessionButtonDisabled();
-  WorkSessionButtonAvailable();
-  playButtonAvailable();
-  pauseButtonAvailable();
-  stopButtonAvailable();
-  stopAnimationInitial();
   launchAnimationTimer();
 }
 
@@ -361,7 +345,6 @@ function pause() {
   document.body.classList.add("pom-pause");
   clearInterval(interval);
   pauseButtonDisabled();
-  // stopButtonDisabled();
   playButtonAvailable();
   pauseAnimationTimer();
 }
