@@ -67,6 +67,7 @@ body.themeColors-animalCrossingColors {
   width: 30%;
 }
 
+/*TODO => find a better way than negativ margin ?*/
 .circle1,
 .circle2,
 .circle3,
