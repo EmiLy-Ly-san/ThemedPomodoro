@@ -2,7 +2,7 @@
 
 **_english will follow_**
 
-**Plutôt Stars Wars ? Stranger Things ? Ou Animal Crossing** Personnellement ça dépend des jours et de mon humeur.
+**Plutôt Stars Wars ? Stranger Things ? Ou Animal Crossing ?** Personnellement ça dépend des jours et de mon humeur.
 
 Ayant tendance à oublier de cligner des yeux et à redresser le cou lors de session de travail face à l'écran, j'ai codé ce pomodoro "maison".
 Il en existe déjà beaucoup de disponible mais aucun ne me satisfaisait, c'est pourquoi j'en ai codé un personnalisé et personnalisable.
@@ -17,7 +17,7 @@ N'hésitez pas à me partager vos conseils pour améliorer ce petit projet perso
 
 **More Star Wars ? Stranger Thing? Or AnimalCrossing?** Personally it depends on the day and my mood.
 
-Having a tendency to forget to blink and straighten my neck during work sessions facing the screenm I coded this homemade pomodoro.
+Having a tendency to forget to blink and straighten my neck during work sessions facing the screen I coded this homemade pomodoro.
 There are already many available but none satisfied me, wich is why I coded a personnalized and customizable one.
 
 The themed pomodoro allows you to choose, depending on your mood of the moment, between a Star Wars, Stranger Thing or even Animal Crossing atmosphere !
