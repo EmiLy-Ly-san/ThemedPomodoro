@@ -157,6 +157,7 @@ body.themeColors-animalCrossingColors {
   animation: load 0s ease-in;
   animation-fill-mode: forwards;
 }
+
 .pom-stop .animationTimer,
 .pom-stop .animationInitial {
   animation: none;
