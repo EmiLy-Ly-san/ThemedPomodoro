@@ -40,9 +40,10 @@ function setTheme() {
       const currentButtonThemeColors =
         themeButton.getAttribute("data-themeColors");
       const newBodyThemeClassName = `themeColors-${currentButtonThemeColors}`;
-      document.body.classList = ""; //NEED TO LEARN REGEXP TO FIX IT BETTER
+      document.body.classList = ""; //NEED TO LEARN REGEXP TO FIX IT BETTER LATER
       document.body.classList.add(newBodyThemeClassName);
       //ALARM SETTING
+      stopAlarm(); //If user change theme during alarm song and so when timer out
       alarmAudio = new Audio(`${themeUserChoice.ringSound}`);
       document
         .querySelector(".iconAlarm")
@@ -131,7 +132,6 @@ function setSession() {
   playButtonAvailable();
   pauseButtonAvailable();
   stopButtonAvailable();
-  launchAnimationTimer();
 }
 
 function transformTimeAsADate(sessionTime) {
