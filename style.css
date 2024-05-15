@@ -64,6 +64,7 @@ body.themeColors-animalCrossingColors {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 30%;
 }
 
@@ -373,4 +374,93 @@ body.themeColors-animalCrossingColors .iconStrangerThings {
   filter: grayScale(70%);
   background: var(--shadowSecondaryColor);
   border-radius: 2.5rem;
+}
+
+@media (max-width: 375px) {
+  .circle1,
+  .circle2 {
+    visibility: hidden;
+  }
+
+  .theme {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .mainContainer {
+    width: 80%;
+  }
+  .circle1 {
+    visibility: hidden;
+  }
+
+  .theme {
+    gap: 1rem;
+  }
+}
+
+@media (max-height: 600px) {
+  .mainContainer {
+    width: 100%;
+  }
+
+  .circle1 {
+    visibility: hidden;
+  }
+
+  .circle2 {
+    top: 5rem;
+    right: 35rem;
+  }
+
+  .circle3 {
+    top: 6.5rem;
+    right: 36.5rem;
+  }
+
+  .circle4 {
+    top: 8rem;
+    right: 38rem;
+  }
+
+  .circle5 {
+    top: 9.5rem;
+    right: 39.5rem;
+  }
+
+  .containerAlarm {
+    top: 15.5rem;
+    right: 47rem;
+  }
+
+  .assetsContainer {
+    position: absolute;
+    top: -15rem;
+    left: 35rem;
+  }
+}
+
+@media (max-height: 1365px) {
+  .assetsContainer {
+    margin-top: 22rem;
+  }
+}
+
+@media (min-height: 1366px) {
+  .assetsContainer {
+    margin-top: 3rem;
+  }
+}
+
+@media (max-height: 667px) {
+  .assetsContainer {
+    margin-top: 26rem;
+  }
+}
+
+@media (max-height: 720px) {
+  .assetsContainer {
+    margin-top: 27rem;
+  }
 }
