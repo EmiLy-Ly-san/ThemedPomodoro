@@ -209,20 +209,19 @@ function play() {
   document.body.classList.add("pom-play");
   clearInterval(interval);
   interval = setInterval(countDown, 1000);
-  playButtonDisabled();
+  playButtonAvailable();
   pauseButtonAvailable();
   stopButtonAvailable();
-  stopAnimationInitial();
-  launchAnimationTimer();
+  launchAnimationTimer(); //not launch with pom-play statement because of the variable timeCalled defined in JS dynamically
 }
 function pause() {
   document.body.classList.remove("pom-stop");
   document.body.classList.remove("pom-play");
   document.body.classList.add("pom-pause");
   clearInterval(interval);
+  playButtonDisabled(); //PLAY PAUSE STOP BUTTONS can't take statements because of set/removeAttribute only possible in js
   pauseButtonDisabled();
-  playButtonAvailable();
-  pauseAnimationTimer();
+  pauseAnimationTimer(); //not launch with pom-pause statement because of the variable timeCalled defined in JS dynamically
 }
 function stop() {
   document.body.classList.remove("pom-play");
@@ -233,10 +232,7 @@ function stop() {
   transformTimeAsADate(sessionTime);
   setTimeInTimerView(minutes, secondes);
   stopButtonDisabled();
-  playButtonAvailable();
   pauseButtonDisabled();
-  stopAnimationTimer();
-  lauchAnimationInitial();
 }
 
 /*****ALARM */
