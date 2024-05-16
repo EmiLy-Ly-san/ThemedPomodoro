@@ -16,13 +16,6 @@ body {
   align-items: center;
 }
 
-:root {
-  --primaryColor: #ff8c9a;
-  --secondaryColor: #dcffe5;
-  --shadowColor: #dd7884;
-  --shadowSecondaryColor: #dcffe5ab;
-}
-
 body.themeColors-starWarsColors {
   --primaryColor: #325eaa;
   --secondaryColor: #dcffe5;

@@ -250,7 +250,7 @@ function stopAlarm() {
 }
 
 //STYLE AND CONTENT PRESET
-function displayDefaultPage() {
+function displayDefaultPomodoro() {
   setTimeInTimerView(minutes, secondes);
   WorkSessionButtonAvailable();
   breakSessionButtonAvailable();
@@ -260,4 +260,4 @@ function displayDefaultPage() {
   stopButton.addEventListener("click", stop);
 }
 
-displayDefaultPage();
+displayDefaultPomodoro();
