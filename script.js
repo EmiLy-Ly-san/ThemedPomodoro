@@ -244,6 +244,8 @@ function stopAlarm() {
   }
   WorkSessionButton.classList.remove("hidden");
   breakSessionButton.classList.remove("hidden");
+  WorkSessionButton.removeAttribute("disabled");
+  breakSessionButton.removeAttribute("disabled");
   dontAnimateIconAlarm();
 }
 
