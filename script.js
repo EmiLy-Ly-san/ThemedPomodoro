@@ -62,7 +62,7 @@ let WorkSessionButton = document.querySelector(".workSession");
 //WORKSESSIONBUTTON*/
 function WorkSessionButtonAvailable() {
   WorkSessionButton.addEventListener("click", function () {
-    timeCalled = 30 * 1000;
+    timeCalled = 25 * 60 * 1000;
     setSession();
     WorkSessionButton.setAttribute("disabled", true);
     WorkSessionButton.classList.remove("hidden");
@@ -73,7 +73,7 @@ function WorkSessionButtonAvailable() {
 //BREAKSESSIONBUTTON*/
 function breakSessionButtonAvailable() {
   breakSessionButton.addEventListener("click", function () {
-    timeCalled = 30 * 1000;
+    timeCalled = 4 * 60 * 1000;
     setSession();
     breakSessionButton.setAttribute("disabled", true);
     breakSessionButton.classList.remove("hidden");
