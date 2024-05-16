@@ -148,18 +148,20 @@ body.themeColors-animalCrossingColors {
 }
 
 /*ANIMATIONS CIRCLE*/
-.animationInitial {
+.animationCircles {
   animation: load 2s ease-in;
   animation-fill-mode: forwards;
 }
 
-.animationTimer {
-  animation: load 0s ease-in;
-  animation-fill-mode: forwards;
+.pom-play .circleStroke {
+  animation-play-state: running;
 }
 
-.pom-stop .animationTimer,
-.pom-stop .animationInitial {
+.pom-pause .circleStroke {
+  animation-play-state: paused;
+}
+
+.pom-stop .animationCircles {
   animation: none;
   stroke-dashoffset: 0;
 }
@@ -336,6 +338,7 @@ button:disabled {
   border: none;
   background: none;
   padding: 0.5rem;
+  cursor: pointer;
 }
 
 body.themeColors-starWarsColors .iconStarWars {
@@ -442,7 +445,7 @@ body.themeColors-animalCrossingColors .iconStrangerThings {
   }
 }
 
-@media (max-height: 1365px) {
+@media (min-height: 1365px) {
   .assetsContainer {
     margin-top: 22rem;
   }
