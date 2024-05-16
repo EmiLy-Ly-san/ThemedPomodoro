@@ -55,36 +55,6 @@ function setTheme() {
 //*****ANIMATION CIRCLES */
 const circlesStroke = document.querySelectorAll(".circleStroke");
 
-function stopAnimationInitial() {
-  [...circlesStroke].forEach(function (circleStroke) {
-    circleStroke.classList.remove("animationInitial");
-  });
-}
-function lauchAnimationInitial() {
-  [...circlesStroke].forEach(function (circleStroke) {
-    circleStroke.classList.add("animationInitial");
-  });
-}
-function launchAnimationTimer() {
-  [...circlesStroke].forEach(function (circleStroke) {
-    circleStroke.classList.add("animationTimer");
-    circleStroke.style.animationDuration = `${timeCalled}ms`;
-    circleStroke.style.animationPlayState = "running";
-  });
-}
-
-function pauseAnimationTimer() {
-  [...circlesStroke].forEach(function (circleStroke) {
-    circleStroke.style.animationPlayState = "paused";
-  });
-}
-
-function stopAnimationTimer() {
-  [...circlesStroke].forEach(function (circleStroke) {
-    circleStroke.classList.remove("animationTimer");
-  });
-}
-
 //*****WORKSESSION AND NEW BREAK */
 let breakSessionButton = document.querySelector(".breakSession");
 let WorkSessionButton = document.querySelector(".workSession");
@@ -94,9 +64,9 @@ function WorkSessionButtonAvailable() {
   WorkSessionButton.addEventListener("click", function () {
     timeCalled = 30 * 1000;
     setSession();
-    WorkSessionButton.removeAttribute("disabled");
+    WorkSessionButton.setAttribute("disabled", true);
     WorkSessionButton.classList.remove("hidden");
-    breakSessionButton.setAttribute("disabled", "true");
+    breakSessionButton.removeAttribute("disabled");
   });
 }
 
@@ -105,14 +75,15 @@ function breakSessionButtonAvailable() {
   breakSessionButton.addEventListener("click", function () {
     timeCalled = 30 * 1000;
     setSession();
-    breakSessionButton.removeAttribute("disabled");
+    breakSessionButton.setAttribute("disabled", true);
     breakSessionButton.classList.remove("hidden");
-    WorkSessionButton.setAttribute("disabled", "true");
+    WorkSessionButton.removeAttribute("disabled");
   });
 }
 
 /*****TIMER*/
 //TIMER GENERAL FUNCTION*/
+let mainContenair = document.querySelector(".mainContainer");
 let timerView = document.querySelector(".timerView");
 let sessionTime;
 let timeCalled;
@@ -124,11 +95,10 @@ function setSession() {
   sessionTime = timeCalled;
   transformTimeAsADate(sessionTime);
   setTimeInTimerView(minutes, secondes);
-  document.body.classList.add("pom-stop");
-  document.body.classList.remove("pom-pause");
-  document.body.classList.remove("pom-play");
+  mainContenair.classList.add("pom-stop");
+  mainContenair.classList.remove("pom-pause");
+  mainContenair.classList.remove("pom-play");
   buttonsBarVisible();
-  breakSessionButtonAvailable();
   playButtonAvailable();
   pauseButtonAvailable();
   stopButtonAvailable();
@@ -204,29 +174,30 @@ function stopButtonDisabled() {
 //RUN PLAY PAUSE OR STOP*/
 function play() {
   console.log(timeCalled);
-  document.body.classList.remove("pom-stop");
-  document.body.classList.remove("pom-pause");
-  document.body.classList.add("pom-play");
+  mainContenair.classList.remove("pom-stop");
+  mainContenair.classList.remove("pom-pause");
+  mainContenair.classList.add("pom-play");
   clearInterval(interval);
   interval = setInterval(countDown, 1000);
   playButtonAvailable();
   pauseButtonAvailable();
   stopButtonAvailable();
-  launchAnimationTimer(); //not launch with pom-play statement because of the variable timeCalled defined in JS dynamically
+  [...circlesStroke].forEach(function (circleStroke) {
+    circleStroke.style.animationDuration = `${timeCalled}ms`;
+  });
 }
 function pause() {
-  document.body.classList.remove("pom-stop");
-  document.body.classList.remove("pom-play");
-  document.body.classList.add("pom-pause");
+  mainContenair.classList.remove("pom-stop");
+  mainContenair.classList.remove("pom-play");
+  mainContenair.classList.add("pom-pause");
   clearInterval(interval);
-  playButtonDisabled(); //PLAY PAUSE STOP BUTTONS can't take statements because of set/removeAttribute only possible in js
+  playButtonAvailable(); //PLAY PAUSE STOP BUTTONS can't take statements because of set/removeAttribute only possible in js
   pauseButtonDisabled();
-  pauseAnimationTimer(); //not launch with pom-pause statement because of the variable timeCalled defined in JS dynamically
 }
 function stop() {
-  document.body.classList.remove("pom-play");
-  document.body.classList.remove("pom-pause");
-  document.body.classList.add("pom-stop");
+  mainContenair.classList.remove("pom-play");
+  mainContenair.classList.remove("pom-pause");
+  mainContenair.classList.add("pom-stop");
   clearInterval(interval);
   sessionTime = timeCalled;
   transformTimeAsADate(sessionTime);
@@ -268,12 +239,11 @@ function stopAlarm() {
   alarmAudio.loop = false;
   alarmAudio.currentTime = 0;
   stopAlarmButtonHidden();
-  timerView.textContent = `New session ?`;
+  if (sessionTime < 0) {
+    timerView.textContent = `New session ?`;
+  }
   WorkSessionButton.classList.remove("hidden");
-  WorkSessionButton.removeAttribute("disabled");
   breakSessionButton.classList.remove("hidden");
-  breakSessionButton.removeAttribute("disabled");
-  breakSessionButtonAvailable();
   dontAnimateIconAlarm();
 }
 
