@@ -11,7 +11,10 @@ Ce pomodoro à thème permet en effet de choisir, selon son envie du moment, ent
 
 Alors aujourd'hui vous choisissez quel thème pour vous accompagner dans vos sessions de travail ?
 
-N'hésitez pas à me partager vos conseils pour améliorer ce petit projet personnel, merci d'avance ! Emilie
+N'hésitez pas à me partager vos conseils pour améliorer ce petit projet personnel, merci d'avance !
+Si vous avez d'autres idées de thème, demandez-moi ! Je serais ravie d'en ajouter.
+
+Emilie
 
 ---
 
@@ -24,4 +27,7 @@ The themed pomodoro allows you to choose, depending on your mood of the moment, 
 
 So today, wich theme do you choose to accompany your work sessions ?
 
-Don't hesitate to share your advice with me to improve this little personal project, thank you in advance ! Emilie
+Don't hesitate to share your advice with me to improve this little personal project, thank you in advance !
+If you have other theme ideas, ask me! I would be happy to add some
+
+Emilie
