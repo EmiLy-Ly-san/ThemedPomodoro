@@ -83,7 +83,7 @@ function breakSessionButtonAvailable() {
 
 /*****TIMER*/
 //TIMER GENERAL FUNCTION*/
-let mainContenair = document.querySelector(".mainContainer");
+let circles = document.querySelector(".circles");
 let timerView = document.querySelector(".timerView");
 let sessionTime;
 let timeCalled;
@@ -95,9 +95,9 @@ function setSession() {
   sessionTime = timeCalled;
   transformTimeAsADate(sessionTime);
   setTimeInTimerView(minutes, secondes);
-  mainContenair.classList.add("pom-stop");
-  mainContenair.classList.remove("pom-pause");
-  mainContenair.classList.remove("pom-play");
+  circles.classList.add("pom-stop");
+  circles.classList.remove("pom-pause");
+  circles.classList.remove("pom-play");
   buttonsBarVisible();
   playButtonAvailable();
   pauseButtonAvailable();
@@ -174,12 +174,12 @@ function stopButtonDisabled() {
 //RUN PLAY PAUSE OR STOP*/
 function play() {
   console.log(timeCalled);
-  mainContenair.classList.remove("pom-stop");
-  mainContenair.classList.remove("pom-pause");
-  mainContenair.classList.add("pom-play");
+  circles.classList.remove("pom-stop");
+  circles.classList.remove("pom-pause");
+  circles.classList.add("pom-play");
   clearInterval(interval);
   interval = setInterval(countDown, 1000);
-  playButtonAvailable();
+  playButtonDisabled();
   pauseButtonAvailable();
   stopButtonAvailable();
   [...circlesStroke].forEach(function (circleStroke) {
@@ -187,23 +187,25 @@ function play() {
   });
 }
 function pause() {
-  mainContenair.classList.remove("pom-stop");
-  mainContenair.classList.remove("pom-play");
-  mainContenair.classList.add("pom-pause");
+  circles.classList.remove("pom-stop");
+  circles.classList.remove("pom-play");
+  circles.classList.add("pom-pause");
   clearInterval(interval);
   playButtonAvailable(); //PLAY PAUSE STOP BUTTONS can't take statements because of set/removeAttribute only possible in js
   pauseButtonDisabled();
+  stopButtonAvailable();
 }
 function stop() {
-  mainContenair.classList.remove("pom-play");
-  mainContenair.classList.remove("pom-pause");
-  mainContenair.classList.add("pom-stop");
+  circles.classList.remove("pom-play");
+  circles.classList.remove("pom-pause");
+  circles.classList.add("pom-stop");
   clearInterval(interval);
   sessionTime = timeCalled;
   transformTimeAsADate(sessionTime);
   setTimeInTimerView(minutes, secondes);
   stopButtonDisabled();
   pauseButtonDisabled();
+  playButtonAvailable();
 }
 
 /*****ALARM */
