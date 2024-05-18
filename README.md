@@ -27,8 +27,11 @@ The themed pomodoro allows you to choose, depending on your mood of the moment, 
 
 So today, wich theme do you choose to accompany your work sessions ?
 
-Don't hesitate to share your advice with me to improve this little personal project, thank you in advance ! Emilie
+Don't hesitate to share your advice with me to improve this little personal project, thank you in advance !
+If you have other theme ideas, ask me! I would be happy to add more.
+
+Emilie
 
 ---
 
-TECHNO => HTML, CSS and JS full Vanilla | Functionnal programming | JS classes constructor method | State management |Switch Theme | Animation | Responsive
+TECHNO => HTML, CSS and JS full Vanilla | Functionnal programming | JS classes constructor method | State management | Switch Theme | Animation | Responsive
