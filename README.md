@@ -25,3 +25,13 @@ The themed pomodoro allows you to choose, depending on your mood of the moment, 
 So today, wich theme do you choose to accompany your work sessions ?
 
 Don't hesitate to share your advice with me to improve this little personal project, thank you in advance ! Emilie
+
+---
+
+TECHNO => HTML, CSS and JS full Vanilla
+Function programming
+JS classes constructor method
+State management
+Switch Theme
+Animation
+Responsive
