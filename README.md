@@ -31,10 +31,4 @@ Don't hesitate to share your advice with me to improve this little personal proj
 
 ---
 
-TECHNO => HTML, CSS and JS full Vanilla
-Function programming
-JS classes constructor method
-State management
-Switch Theme
-Animation
-Responsive
+TECHNO => HTML, CSS and JS full Vanilla | Functionnal programming | JS classes constructor method | State management |Switch Theme | Animation | Responsive
