@@ -424,4 +424,8 @@ body.themeColors-animalCrossingColors .iconStrangerThings {
   .mainContainer {
     flex-direction: row;
   }
+
+  .assetsContainer {
+    margin-left: 12rem;
+  }
 }
