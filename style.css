@@ -7,13 +7,13 @@
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: var(--primaryColor);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3rem;
+  justify-content: center;
 }
 
 body.themeColors-starWarsColors {
@@ -52,16 +52,35 @@ body.themeColors-animalCrossingColors {
   --circle5: #cfbaf0;
 }
 
+.mainContainer {
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30rem;
+}
+
 /*CIRCLES + RING*/
 
-.mainContainer {
+/*.mainContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 30rem;
   height: 30rem;
-  position: absolute;
+  border: 1px solid;
+}*/
+
+.circles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 30rem;
+  height: 30rem;
 }
 
 .circle1 {
@@ -204,9 +223,9 @@ body.themeColors-animalCrossingColors {
 
 /*TIMER + CHOICES*/
 
-.assetsContainer {
+/*.assetsContainer {
   margin-top: 30rem;
-}
+}*/
 .possibilitiesContainer {
   display: flex;
   flex-direction: column;
@@ -382,13 +401,9 @@ body.themeColors-animalCrossingColors .iconStrangerThings {
     visibility: hidden;
   }
 
-  .mainContainer {
+  .circles {
     width: 27rem;
     height: 27rem;
-  }
-
-  .assetsContainer {
-    margin-top: 27rem;
   }
 
   .circle2 {
@@ -405,6 +420,9 @@ body.themeColors-animalCrossingColors .iconStrangerThings {
   .circle5 {
     top: 4.5rem;
   }
+  /*.assetsContainer {
+    margin-top: -3rem;
+  }*/
 
   .theme {
     gap: 1rem;
@@ -426,14 +444,7 @@ body.themeColors-animalCrossingColors .iconStrangerThings {
     width: 95%;
   }*/
 
-  body {
+  .mainContainer {
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-  }
-
-  .assetsContainer {
-    margin-top: 0;
-    margin-left: 30rem;
   }
 }

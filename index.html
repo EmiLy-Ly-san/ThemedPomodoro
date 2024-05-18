@@ -9,129 +9,133 @@
   </head>
   <body class="themeColors-starWarsColors">
     <div class="mainContainer">
-      <svg class="circle1" height="30rem" width="30rem">
-        <circle
-          class="circleStroke circle1__Stroke animationCircles"
-          stroke-width="1.3rem"
-          stroke-linecap="round"
-          r="12rem"
-          cx="15rem"
-          cy="15rem"
-          fill="transparent"
-        ></circle>
-      </svg>
-      <svg class="circle2" height="27rem" width="27rem">
-        <circle
-          class="circleStroke circle2__Stroke animationCircles"
-          stroke-width="1.3rem"
-          stroke-linecap="round"
-          r="10.5rem"
-          cx="13.5rem"
-          cy="13.5rem"
-          fill="transparent"
-        ></circle>
-      </svg>
-      <svg class="circle3" height="24rem" width="24rem">
-        <circle
-          class="circleStroke circle3__Stroke animationCircles"
-          stroke-width="1.3rem"
-          stroke-linecap="round"
-          r="9rem"
-          cx="12rem"
-          cy="12rem"
-          fill="transparent"
-        ></circle>
-      </svg>
-      <svg class="circle4" height="21rem" width="21rem">
-        <circle
-          class="circleStroke circle4__Stroke animationCircles"
-          stroke-width="1.3rem"
-          stroke-linecap="round"
-          r="7.5rem"
-          cx="10.5rem"
-          cy="10.5rem"
-          fill="transparent"
-        ></circle>
-      </svg>
-      <svg class="circle5" height="18rem" width="18rem">
-        <circle
-          class="circleStroke circle5__Stroke animationCircles"
-          stroke-width="1.3rem"
-          stroke-linecap="round"
-          r="6rem"
-          cx="9rem"
-          cy="9rem"
-          fill="transparent"
-        ></circle>
-      </svg>
-      <button class="containerAlarm">
-        <img
-          class="iconAlarm"
-          src="images/icons8-soldat-d'assaut.svg"
-          alt="Icone de l'alarme"
-        />
-      </button>
-    </div>
+      <div class="circles">
+        <svg class="circle1" height="30rem" width="30rem">
+          <circle
+            class="circleStroke circle1__Stroke animationCircles"
+            stroke-width="1.3rem"
+            stroke-linecap="round"
+            r="12rem"
+            cx="15rem"
+            cy="15rem"
+            fill="transparent"
+          ></circle>
+        </svg>
+        <svg class="circle2" height="27rem" width="27rem">
+          <circle
+            class="circleStroke circle2__Stroke animationCircles"
+            stroke-width="1.3rem"
+            stroke-linecap="round"
+            r="10.5rem"
+            cx="13.5rem"
+            cy="13.5rem"
+            fill="transparent"
+          ></circle>
+        </svg>
+        <svg class="circle3" height="24rem" width="24rem">
+          <circle
+            class="circleStroke circle3__Stroke animationCircles"
+            stroke-width="1.3rem"
+            stroke-linecap="round"
+            r="9rem"
+            cx="12rem"
+            cy="12rem"
+            fill="transparent"
+          ></circle>
+        </svg>
+        <svg class="circle4" height="21rem" width="21rem">
+          <circle
+            class="circleStroke circle4__Stroke animationCircles"
+            stroke-width="1.3rem"
+            stroke-linecap="round"
+            r="7.5rem"
+            cx="10.5rem"
+            cy="10.5rem"
+            fill="transparent"
+          ></circle>
+        </svg>
+        <svg class="circle5" height="18rem" width="18rem">
+          <circle
+            class="circleStroke circle5__Stroke animationCircles"
+            stroke-width="1.3rem"
+            stroke-linecap="round"
+            r="6rem"
+            cx="9rem"
+            cy="9rem"
+            fill="transparent"
+          ></circle>
+        </svg>
+        <button class="containerAlarm">
+          <img
+            class="iconAlarm"
+            src="images/icons8-soldat-d'assaut.svg"
+            alt="Icone de l'alarme"
+          />
+        </button>
+      </div>
 
-    <div class="assetsContainer">
-      <div class="timerView"></div>
-      <div class="possibilitiesContainer">
-        <div class="buttonsBar hidden">
-          <button class="timerButtons buttonPlay">
-            <div class="play"></div>
-          </button>
-          <button class="timerButtons buttonPause">
-            <div class="pause"></div>
-          </button>
-          <button class="timerButtons buttonStop">
-            <div class="stop"></div>
-          </button>
-        </div>
-        <div class="choiceBar">
-          <div class="choiceSession">
-            <button class="choiceSessionButtons workSession">
-              Work session
+      <div class="assetsContainer">
+        <div class="timerView"></div>
+        <div class="possibilitiesContainer">
+          <div class="buttonsBar hidden">
+            <button class="timerButtons buttonPlay">
+              <div class="play"></div>
             </button>
-            <button class="choiceSessionButtons stopAlarmButton hidden">
-              Stop Alarm
+            <button class="timerButtons buttonPause">
+              <div class="pause"></div>
             </button>
-            <button class="choiceSessionButtons breakSession">New break</button>
+            <button class="timerButtons buttonStop">
+              <div class="stop"></div>
+            </button>
           </div>
-          <div class="theme">
-            <button
-              class="starWars choiceTheme"
-              id="starWars"
-              data-themeColors="starWarsColors"
-            >
-              <img
-                class="iconStarWars"
-                src="images/icons8-star-wars (1).svg"
-                c49bdf
-                alt="Icone de Stars War"
-              />
-            </button>
-            <button
-              class="strangerThings choiceTheme"
-              id="strangerThings"
-              data-themeColors="strangerThingsColors"
-            >
-              <img
-                class="iconStrangerThings"
-                src="images/icons8-choses-étranges.svg"
-                alt="Icone de Stranger Things"
-              />
-            </button>
-            <button
-              class="animalCrossing choiceTheme"
-              id="animalCrossing"
-              data-themeColors="animalCrossingColors"
-            >
-              <img
-                class="iconAnimalCrossing"
-                src="images/icons8-traversée-d'animaux (1).svg"
-                alt="Icone de Animal Crossing"
-              />
-            </button>
+          <div class="choiceBar">
+            <div class="choiceSession">
+              <button class="choiceSessionButtons workSession">
+                Work session
+              </button>
+              <button class="choiceSessionButtons stopAlarmButton hidden">
+                Stop Alarm
+              </button>
+              <button class="choiceSessionButtons breakSession">
+                New break
+              </button>
+            </div>
+            <div class="theme">
+              <button
+                class="starWars choiceTheme"
+                id="starWars"
+                data-themeColors="starWarsColors"
+              >
+                <img
+                  class="iconStarWars"
+                  src="images/icons8-star-wars (1).svg"
+                  c49bdf
+                  alt="Icone de Stars War"
+                />
+              </button>
+              <button
+                class="strangerThings choiceTheme"
+                id="strangerThings"
+                data-themeColors="strangerThingsColors"
+              >
+                <img
+                  class="iconStrangerThings"
+                  src="images/icons8-choses-étranges.svg"
+                  alt="Icone de Stranger Things"
+                />
+              </button>
+              <button
+                class="animalCrossing choiceTheme"
+                id="animalCrossing"
+                data-themeColors="animalCrossingColors"
+              >
+                <img
+                  class="iconAnimalCrossing"
+                  src="images/icons8-traversée-d'animaux (1).svg"
+                  alt="Icone de Animal Crossing"
+                />
+              </button>
+            </div>
           </div>
         </div>
       </div>
