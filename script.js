@@ -1,5 +1,5 @@
 //*****THEMES//
-let alarmAudio = new Audio("alarms/Voicy_Star Wars Main Theme (Full).mp3");
+let alarmAudio = new Audio("alarms/Voicy_Star-Wars-Main-Theme-(Full).mp3");
 let themeButtons = document.querySelectorAll("button[data-themeColors]");
 let themeUserChoice;
 
@@ -11,17 +11,17 @@ class Theme {
 }
 
 const starWarsConfig = {
-  ringSound: "alarms/Voicy_Star Wars Main Theme (Full).mp3",
-  ringPicture: "images/icons8-soldat-d'assaut.svg",
+  ringSound: "alarms/Voicy_Star-Wars-Main-Theme-(Full).mp3",
+  ringPicture: "images/icons8-soldat-d-assaut.svg",
 };
 
 const strangerThingsConfig = {
-  ringSound: "alarms/Voicy_stranger things beat.mp3",
+  ringSound: "alarms/Voicy_stranger-things-beat.mp3",
   ringPicture: "images/icons8-maxine-mayfield.svg",
 };
 
 const animalCrossingConfig = {
-  ringSound: "alarms/Voicy_Animal Crossing New Horizons Theme music.mp3",
+  ringSound: "alarms/Voicy_Animal-Crossing-New-Horizons-Theme-music.mp3",
   ringPicture: "images/Bluebear_NH_Villager_Icon.png",
 };
 
