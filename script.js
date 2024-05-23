@@ -5,22 +5,26 @@ let themeUserChoice;
 
 class Theme {
   constructor(themeConfig) {
+    this.id = themeConfig.id;
     this.ringSound = themeConfig.ringSound;
     this.ringPicture = themeConfig.ringPicture;
   }
 }
 
 const starWarsConfig = {
+  id: "starwars",
   ringSound: "alarms/Voicy_Star-Wars-Main-Theme-(Full).mp3",
   ringPicture: "images/icons8-soldat-d-assaut.svg",
 };
 
 const strangerThingsConfig = {
+  id: "strangerthings",
   ringSound: "alarms/Voicy_stranger-things-beat.mp3",
   ringPicture: "images/icons8-maxine-mayfield.svg",
 };
 
 const animalCrossingConfig = {
+  id: "animalcrossing",
   ringSound: "alarms/Voicy_Animal-Crossing-New-Horizons-Theme-music.mp3",
   ringPicture: "images/Bluebear_NH_Villager_Icon.png",
 };
@@ -37,6 +41,7 @@ function setTheme() {
     themeButton.addEventListener("click", () => {
       themeUserChoice = themeCollection[themeButton.id];
       console.log(themeUserChoice);
+      window.localStorage.setItem("themeUserPreference", themeButton.id); //save preferences
       const currentButtonThemeColors =
         themeButton.getAttribute("data-themeColors");
       const newBodyThemeClassName = `themeColors-${currentButtonThemeColors}`;
@@ -252,7 +257,23 @@ function stopAlarm() {
 }
 
 //STYLE AND CONTENT PRESET
-function displayDefaultPomodoro() {
+function displayPomodoro() {
+  //last theme user preference verfication
+  if (window.localStorage.getItem("themeUserPreference")) {
+    const themeIdFromLocalStorage = window.localStorage.getItem(
+      "themeUserPreference"
+    );
+    themeUserChoice = themeCollection[themeIdFromLocalStorage]; //return so an object
+    console.log(themeUserChoice);
+    const newBodyThemeClassName = `themeColors-${themeIdFromLocalStorage}Colors`;
+    document.body.classList = "";
+    document.body.classList.add(newBodyThemeClassName);
+    //ALARM SETTING
+    alarmAudio = new Audio(`${themeUserChoice.ringSound}`);
+    document
+      .querySelector(".iconAlarm")
+      .setAttribute("src", `${themeUserChoice.ringPicture}`);
+  }
   setTimeInTimerView(minutes, secondes);
   WorkSessionButtonAvailable();
   breakSessionButtonAvailable();
@@ -262,4 +283,4 @@ function displayDefaultPomodoro() {
   stopButton.addEventListener("click", stop);
 }
 
-displayDefaultPomodoro();
+displayPomodoro();
