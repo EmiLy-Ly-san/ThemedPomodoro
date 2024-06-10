@@ -273,6 +273,12 @@ function displayPomodoro() {
     document
       .querySelector(".iconAlarm")
       .setAttribute("src", `${themeUserChoice.ringPicture}`);
+  } else {
+    themeUserChoice = themeCollection.starWars;
+    alarmAudio = new Audio(`${themeUserChoice.ringSound}`);
+    document
+      .querySelector(".iconAlarm")
+      .setAttribute("src", `${themeUserChoice.ringPicture}`);
   }
   setTimeInTimerView(minutes, secondes);
   WorkSessionButtonAvailable();
